@@ -40,6 +40,8 @@
   }
   button { font-family: inherit; cursor: pointer; transition: all 0.15s ease; }
   input, select, textarea { font-family: inherit; }
+  a.btn { text-decoration: none; }
+  .muted { color: var(--text-muted); font-size: 12.5px; }
 
   /* ---------- Login Screen ---------- */
   #login-screen {
@@ -74,62 +76,30 @@
     position: relative;
     z-index: 2;
   }
-  .login-brand {
-    text-align: center;
-    margin-bottom: 26px;
-  }
+  .login-brand { text-align: center; margin-bottom: 26px; }
   .login-brand img.school-logo {
-    width: 86px;
-    height: 86px;
-    object-fit: contain;
-    margin: 0 auto 12px;
-    display: block;
+    width: 86px; height: 86px; object-fit: contain; margin: 0 auto 12px; display: block;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
   }
   .login-brand h1 {
-    font-size: 18px;
-    line-height: 1.3;
-    margin: 0 0 6px;
-    font-weight: 700;
-    color: var(--navy-dark);
-    letter-spacing: -0.2px;
-    text-transform: uppercase;
+    font-size: 18px; line-height: 1.3; margin: 0 0 6px; font-weight: 700;
+    color: var(--navy-dark); letter-spacing: -0.2px; text-transform: uppercase;
   }
-  .login-brand p.sub {
-    font-size: 13.5px;
-    color: var(--navy);
-    font-weight: 600;
-    margin: 0 0 4px;
-  }
-  .login-brand p.motto {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin: 0;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
+  .login-brand p.sub { font-size: 13.5px; color: var(--navy); font-weight: 600; margin: 0 0 4px; }
+  .login-brand p.motto { font-size: 11px; color: var(--text-muted); margin: 0; letter-spacing: 0.5px; text-transform: uppercase; font-weight: 500; }
   .access-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--navy);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 20px;
-    margin: 16px 0 20px;
-    width: 100%;
-    justify-content: center;
+    display: inline-flex; align-items: center; gap: 6px; background: var(--navy); color: #fff;
+    font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 20px; margin: 16px 0 20px;
+    width: 100%; justify-content: center;
   }
   .field { margin-bottom: 16px; }
   .field label { display: block; font-size: 12.5px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-  .field input {
+  .field input, .field select {
     width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: 8px;
     font-size: 14px; background: #fff; transition: border-color 0.2s;
   }
-  .field input:focus { outline: none; border-color: var(--navy-light); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--navy-light); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .btn-primary {
     width: 100%; padding: 12px; border: none; border-radius: 8px; background: var(--navy);
     color: #fff; font-size: 14.5px; font-weight: 600; margin-top: 8px; box-shadow: 0 2px 4px rgba(30, 58, 138, 0.2);
@@ -149,9 +119,7 @@
     display: flex; align-items: center; gap: 12px; padding: 4px 8px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12); margin-bottom: 20px;
   }
-  .sidebar-brand img.school-logo-sm {
-    width: 40px; height: 40px; object-fit: contain; flex-shrink: 0;
-  }
+  .sidebar-brand img.school-logo-sm { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; }
   .sidebar-brand div p { margin: 0; font-size: 14px; font-weight: 700; color: #fff; line-height: 1.2; }
   .sidebar-brand div span { font-size: 11px; color: rgba(255,255,255,0.65); display: block; margin-top: 2px; }
 
@@ -177,7 +145,7 @@
   .logout-btn:hover { background: rgba(239, 68, 68, 0.2); color: #FCA5A5; border-color: rgba(239, 68, 68, 0.4); }
 
   /* ---------- Main Content ---------- */
-  .main { flex: 1; padding: 32px 38px; max-width: 1120px; overflow-y: auto; }
+  .main { flex: 1; min-width: 0; padding: 32px 38px; max-width: 1180px; overflow-y: auto; }
   .page { display: none; }
   .page.active { display: block; animation: fadeIn 0.2s ease; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
@@ -185,12 +153,14 @@
   .page-head { margin-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; }
   .page-head h2 { font-size: 22px; margin: 0 0 4px; font-weight: 700; color: var(--navy-dark); letter-spacing: -0.3px; }
   .page-head p { margin: 0; font-size: 13.5px; color: var(--text-muted); }
+  .section-title { font-size: 14px; font-weight: 700; color: var(--navy-dark); margin: 0 0 12px; }
 
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   @media(max-width: 860px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } }
 
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); }
+  .table-card { padding: 0; overflow-x: auto; }
 
   .menu-card {
     display: flex; flex-direction: column; gap: 10px; padding: 22px 20px; cursor: pointer;
@@ -204,6 +174,20 @@
   .stat-card p.label { margin: 0 0 6px; font-size: 12.5px; font-weight: 500; color: var(--text-muted); }
   .stat-card p.value { margin: 0; font-size: 26px; font-weight: 700; color: var(--navy-dark); }
 
+  /* Ringkasan per kelas */
+  .kelas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+  .kelas-card { padding: 16px; cursor: pointer; transition: all 0.2s ease; }
+  .kelas-card:hover { border-color: var(--navy-light); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .kc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 14px; color: var(--navy-dark); }
+  .kc-meta { margin: 8px 0 0; font-size: 12px; color: var(--text-muted); }
+  .kc-meta b { color: var(--text); }
+
+  .bar { height: 8px; background: #E2E8F0; border-radius: 99px; overflow: hidden; }
+  .bar > i { display: block; height: 100%; background: var(--green); border-radius: 99px; transition: width 0.3s ease; }
+  .bar.warn > i { background: var(--amber); }
+  .bar.bad > i { background: var(--red); }
+  .pill { display: inline-block; background: #fff; color: var(--navy); border: 1px solid #BFDBFE; font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 20px; }
+
   .toolbar { display: flex; gap: 12px; align-items: center; margin-bottom: 18px; flex-wrap: wrap; }
   .toolbar input[type=text] { flex: 1; min-width: 200px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; background: #fff; }
   .toolbar select { padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; background: #fff; }
@@ -215,21 +199,44 @@
   .btn.danger:hover { background: var(--red-bg); }
 
   table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-  th { text-align: left; color: var(--text-muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; padding: 12px 14px; border-bottom: 1px solid var(--line); background: #F8FAFC; }
+  th { text-align: left; color: var(--text-muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; padding: 12px 14px; border-bottom: 1px solid var(--line); background: #F8FAFC; white-space: nowrap; }
   td { padding: 13px 14px; border-bottom: 1px solid var(--line); vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: #F8FAFC; }
+  td .sub { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
 
-  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 20px; font-size: 11.5px; font-weight: 600; }
+  /* Baris kelompok (per kelas) */
+  tr.group-row td {
+    background: #EFF6FF; color: var(--navy); font-weight: 700; font-size: 13px; cursor: pointer;
+    border-top: 1px solid #DBEAFE; border-bottom: 1px solid #DBEAFE; padding: 11px 14px; user-select: none;
+  }
+  tr.group-row:hover td { background: #DBEAFE; }
+  .group-row .caret { display: inline-block; width: 14px; }
+  .group-row .pill { margin-left: 8px; }
+  .group-row .group-meta { margin-left: 10px; font-size: 12px; font-weight: 500; color: var(--text-muted); }
+
+  .prog-cell { display: flex; align-items: center; gap: 10px; min-width: 130px; }
+  .prog-cell .bar { flex: 1; }
+  .prog-cell span { font-size: 12px; font-weight: 600; color: var(--text-muted); }
+
+  .file-link {
+    display: inline-flex; align-items: center; gap: 6px; max-width: 200px; padding: 4px 10px; border-radius: 6px;
+    border: 1px solid #BFDBFE; background: #EFF6FF; color: var(--navy); font-size: 12px; font-weight: 500;
+  }
+  .file-link:hover { background: #DBEAFE; }
+  .file-link .fn { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .file-link small { color: var(--text-muted); font-size: 10.5px; flex-shrink: 0; }
+
+  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 20px; font-size: 11.5px; font-weight: 600; white-space: nowrap; }
   .badge.ok { background: var(--green-bg); color: var(--green); }
   .badge.warn { background: var(--amber-bg); color: var(--amber); }
   .badge.bad { background: var(--red-bg); color: var(--red); }
 
-  .action-btns { display: flex; gap: 6px; justify-content: flex-end; }
-  .row-btn { padding: 6px 12px; border-radius: 6px; border: 1px solid var(--line); background: #fff; font-size: 12px; font-weight: 500; color: var(--text); }
+  .action-btns { display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap; }
+  .row-btn { padding: 6px 12px; border-radius: 6px; border: 1px solid var(--line); background: #fff; font-size: 12px; font-weight: 500; color: var(--text); white-space: nowrap; }
   .row-btn:hover { border-color: var(--navy); background: #F1F5F9; color: var(--navy); }
-  .row-btn.success { background: var(--green-bg); color: var(--green); border-color: #86EFAC; font-weight: 600; }
-  .row-btn.success:hover { background: #BBF7D0; border-color: var(--green); }
+  .row-btn.accent { background: var(--navy); color: #fff; border-color: var(--navy); font-weight: 600; }
+  .row-btn.accent:hover { background: var(--navy-dark); color: #fff; }
   .row-btn.danger:hover { border-color: var(--red); color: var(--red); background: var(--red-bg); }
 
   /* Modal Backdrop & Box */
@@ -237,7 +244,7 @@
   .modal-backdrop.show { display: flex; animation: fadeIn 0.15s ease; }
   .modal { background: #fff; border-radius: 14px; padding: 24px 28px; width: 100%; max-width: 480px; box-shadow: var(--shadow-lg); border: 1px solid var(--line); max-height: 92vh; overflow-y: auto; }
   .modal h3 { margin: 0 0 16px; font-size: 17px; font-weight: 700; color: var(--navy-dark); border-bottom: 1px solid var(--line); padding-bottom: 12px; }
-  .modal-actions { display: flex; gap: 10px; margin-top: 22px; justify-content: flex-end; }
+  .modal-actions { display: flex; gap: 10px; margin-top: 22px; justify-content: flex-end; align-items: center; }
 
   .toast {
     position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px);
@@ -245,6 +252,7 @@
     font-weight: 500; opacity: 0; pointer-events: none; transition: all 0.25s; z-index: 100;
     box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 8px;
   }
+  .toast.error { background: var(--red); }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
   .activity-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 13px; align-items: flex-start; }
@@ -252,7 +260,42 @@
   .activity-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--navy-light); margin-top: 5px; flex-shrink: 0; }
   .activity-item .t { color: var(--text-muted); font-size: 11.5px; white-space: nowrap; font-weight: 500; }
 
-  /* Detail & Preview Dokumen */
+  /* Dropzone unggah file */
+  .dropzone {
+    border: 2px dashed #CBD5E1; border-radius: 10px; padding: 18px 14px; text-align: center; cursor: pointer;
+    background: #F8FAFC; transition: all 0.15s ease;
+  }
+  .dropzone:hover, .dropzone.drag { border-color: var(--navy-light); background: #EFF6FF; }
+  .dropzone .dz-ico { font-size: 22px; color: var(--navy-light); display: block; margin-bottom: 4px; }
+  .dropzone p { margin: 0; font-size: 13px; color: var(--text); }
+  .dropzone small { display: block; margin-top: 4px; font-size: 12px; color: var(--text-muted); word-break: break-all; }
+
+  /* Berkas siswa */
+  .berkas-head {
+    display: flex; gap: 16px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+    background: #F8FAFC; border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin-bottom: 8px;
+  }
+  .berkas-head .nm { font-size: 16px; font-weight: 700; color: var(--navy-dark); margin: 0; }
+  .berkas-head .meta { font-size: 12.5px; color: var(--text-muted); margin: 3px 0 0; }
+  .berkas-prog { min-width: 200px; flex: 1; max-width: 280px; }
+  .berkas-prog .row { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-bottom: 6px; color: var(--text-muted); }
+  .berkas-section {
+    font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-muted); font-weight: 700;
+    margin: 18px 0 8px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .req-row { display: flex; gap: 12px; align-items: center; padding: 12px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; background: #fff; flex-wrap: wrap; }
+  .req-ico { width: 38px; height: 38px; border-radius: 9px; background: #EFF6FF; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .req-main { flex: 1; min-width: 180px; }
+  .req-name { margin: 0; font-size: 13.5px; font-weight: 600; color: var(--navy-dark); }
+  .req-meta { margin: 2px 0 0; font-size: 12px; color: var(--text-muted); word-break: break-all; }
+  .req-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+  .empty-note { font-size: 12.5px; color: var(--text-muted); padding: 10px 2px; }
+
+  .preview-body { text-align: center; }
+  .preview-body iframe { width: 100%; height: 65vh; border: 1px solid var(--line); border-radius: 8px; }
+  .preview-body img { max-width: 100%; max-height: 65vh; border-radius: 8px; border: 1px solid var(--line); }
+
+  /* Detail & Preview Dokumen (cetak) */
   .print-paper {
     background: #fff; padding: 30px; border: 1px solid var(--line); border-radius: 8px;
     font-family: 'Times New Roman', Times, serif; color: #000; line-height: 1.5; font-size: 14px;
@@ -272,11 +315,13 @@
 
   /* Saat mencetak: hanya tampilkan isi dokumen */
   @media print {
-    body * { visibility: hidden; }
-    #print-paper-content, #print-paper-content * { visibility: visible; }
-    .modal-backdrop { background: none; backdrop-filter: none; padding: 0; }
-    .modal { max-width: none; box-shadow: none; border: none; padding: 0; max-height: none; overflow: visible; }
-    #print-paper-content { position: absolute; left: 0; top: 0; width: 100%; border: none; }
+    body.printing #app, body.printing #login-screen, body.printing .toast,
+    body.printing .modal-backdrop:not(#modal-print) { display: none !important; }
+    body.printing { background: #fff; }
+    body.printing #modal-print { position: static; display: block; background: none; padding: 0; backdrop-filter: none; }
+    body.printing #modal-print .modal { max-width: none !important; box-shadow: none; border: none; padding: 0; max-height: none; overflow: visible; }
+    body.printing #modal-print .modal > h3, body.printing #modal-print .modal-actions { display: none; }
+    body.printing #modal-print .print-paper { border: none; padding: 0; }
   }
 </style>
 </head>
@@ -324,8 +369,8 @@
     <div class="nav-title">Menu Utama TU</div>
     <nav>
       <button class="nav-item active" data-page="dashboard"><span class="nav-icon">&#9635;</span>Dasbor Staf</button>
-      <button class="nav-item" data-page="arsip"><span class="nav-icon">&#128193;</span>Dokumen Siswa</button>
       <button class="nav-item" data-page="siswa"><span class="nav-icon">&#128100;</span>Data Siswa</button>
+      <button class="nav-item" data-page="arsip"><span class="nav-icon">&#128193;</span>Dokumen Siswa</button>
       <button class="nav-item" data-page="backup"><span class="nav-icon">&#9729;</span>Backup Data</button>
     </nav>
 
@@ -374,16 +419,19 @@
         </div>
       </div>
 
+      <h3 class="section-title">Ringkasan Kelengkapan per Kelas <span class="muted" style="font-weight:400;">(klik kelas untuk membuka daftar siswa)</span></h3>
+      <div class="kelas-grid" id="kelas-summary" style="margin-bottom: 26px;"></div>
+
       <div class="grid-2">
         <div class="card menu-card" data-page="arsip">
           <div class="icon">&#128193;</div>
           <h3>Kelola Dokumen Administrasi</h3>
-          <p>Lihat, cari, dan perbarui data ijazah, rapor, surat masuk/keluar, serta berkas organisasi siswa.</p>
+          <p>Lihat, cari, dan perbarui ijazah, akta, KK, rapor, surat, serta berkas organisasi — dikelompokkan per kelas.</p>
         </div>
         <div class="card menu-card" data-page="siswa">
           <div class="icon">&#128100;</div>
-          <h3>Data Siswa</h3>
-          <p>Cari data siswa, periksa kelengkapan dokumennya, dan cetak dokumen administrasi siswa.</p>
+          <h3>Data Siswa & Berkas</h3>
+          <p>Cari siswa per kelas, unggah ijazah dan dokumen wajib, lalu cetak dokumen administrasi siswa.</p>
         </div>
         <div class="card menu-card" data-page="backup">
           <div class="icon">&#9729;</div>
@@ -393,52 +441,8 @@
         <div class="card menu-card" data-page="arsip" data-open-upload="1">
           <div class="icon">+</div>
           <h3>Unggah Dokumen Baru</h3>
-          <p>Daftarkan dokumen digital dan fisik siswa yang baru ke dalam basis data sekolah.</p>
+          <p>Unggah file ijazah atau dokumen lain untuk siswa tertentu, atau dokumen umum sekolah.</p>
         </div>
-      </div>
-    </div>
-
-    <!-- PAGE: DOKUMEN ADMINISTRASI SISWA -->
-    <div class="page" id="page-arsip">
-      <div class="page-head">
-        <div>
-          <h2>Daftar Dokumen Administrasi Siswa</h2>
-          <p>Daftar inventaris dokumen administrasi siswa lengkap dengan kategori dan status penyimpanan.</p>
-        </div>
-        <button class="btn primary" id="btn-add-doc">+ Unggah Dokumen Baru</button>
-      </div>
-
-      <div class="toolbar">
-        <input type="text" id="arsip-search" placeholder="Cari nama dokumen, nama siswa..." />
-        <select id="arsip-filter-kat">
-          <option value="">Semua Kategori</option>
-          <option>Ijazah</option>
-          <option>Rapor</option>
-          <option>Surat masuk/keluar</option>
-          <option>Organisasi</option>
-        </select>
-        <select id="arsip-filter-status">
-          <option value="">Semua Status</option>
-          <option value="ok">Lengkap</option>
-          <option value="warn">Perlu Tindakan</option>
-          <option value="bad">Hilang</option>
-        </select>
-      </div>
-
-      <div class="card" style="padding:0; overflow:hidden;">
-        <table>
-          <thead>
-            <tr>
-              <th>Dokumen / Siswa</th>
-              <th>Kategori</th>
-              <th>Tahun</th>
-              <th>Jenis Penyimpanan</th>
-              <th>Status</th>
-              <th style="text-align:right;">Aksi</th>
-            </tr>
-          </thead>
-          <tbody id="arsip-tbody"></tbody>
-        </table>
       </div>
     </div>
 
@@ -447,27 +451,74 @@
       <div class="page-head">
         <div>
           <h2>Pencarian Data Siswa</h2>
-          <p>Cari data siswa, periksa kelengkapan dokumennya, dan cetak dokumen administrasi siswa.</p>
+          <p>Siswa dikelompokkan per kelas. Buka <strong>Berkas</strong> untuk mengunggah ijazah dan dokumen wajib lainnya.</p>
         </div>
         <button class="btn primary" id="btn-add-siswa">+ Tambah Data Siswa</button>
       </div>
 
       <div class="toolbar">
         <input type="text" id="siswa-search" placeholder="Cari berdasarkan nama siswa, NISN, atau kelas..." />
+        <select id="siswa-filter-kelas"></select>
+        <select id="siswa-filter-status">
+          <option value="">Semua Kelengkapan</option>
+          <option value="ok">Lengkap</option>
+          <option value="warn">Belum Lengkap</option>
+          <option value="bad">Belum Ada Dokumen</option>
+        </select>
       </div>
 
-      <div class="card" style="padding:0; overflow:hidden;">
+      <div class="card table-card">
         <table>
           <thead>
             <tr>
               <th>Nama Siswa</th>
               <th>NISN</th>
-              <th>Kelas</th>
+              <th>Dokumen Wajib</th>
               <th>Status Kelengkapan Dokumen</th>
               <th style="text-align:right;">Aksi</th>
             </tr>
           </thead>
           <tbody id="siswa-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PAGE: DOKUMEN ADMINISTRASI SISWA -->
+    <div class="page" id="page-arsip">
+      <div class="page-head">
+        <div>
+          <h2>Daftar Dokumen Administrasi Siswa</h2>
+          <p>Seluruh dokumen dikelompokkan per kelas, lengkap dengan file yang sudah diunggah dan status kelengkapannya.</p>
+        </div>
+        <button class="btn primary" id="btn-add-doc">&#8593; Unggah Dokumen Baru</button>
+      </div>
+
+      <div class="toolbar">
+        <input type="text" id="arsip-search" placeholder="Cari nama dokumen, nama siswa, NISN, kelas..." />
+        <select id="arsip-filter-kelas"></select>
+        <select id="arsip-filter-kat"></select>
+        <select id="arsip-filter-status">
+          <option value="">Semua Status</option>
+          <option value="ok">Lengkap</option>
+          <option value="warn">Perlu Tindakan</option>
+          <option value="bad">Hilang</option>
+        </select>
+      </div>
+
+      <div class="card table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Dokumen / Siswa</th>
+              <th>Kategori</th>
+              <th>Tahun</th>
+              <th>Penyimpanan</th>
+              <th>File</th>
+              <th>Status</th>
+              <th style="text-align:right;">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="arsip-tbody"></tbody>
         </table>
       </div>
     </div>
@@ -514,43 +565,66 @@
   </div>
 </div>
 
-<!-- ================= MODAL: TAMBAH / EDIT DOKUMEN ================= -->
+<!-- ================= MODAL: BERKAS SISWA ================= -->
+<div class="modal-backdrop" id="modal-berkas">
+  <div class="modal" style="max-width: 780px;">
+    <h3>Berkas Dokumen Siswa</h3>
+    <div id="berkas-body"></div>
+    <div class="modal-actions">
+      <button class="btn" id="berkas-close">Tutup</button>
+      <button class="btn primary" id="berkas-print">&#128438; Cetak Dokumen</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL: UNGGAH / EDIT DOKUMEN ================= -->
 <div class="modal-backdrop" id="modal-doc">
   <div class="modal">
     <h3 id="modal-doc-title">Unggah Dokumen Baru</h3>
-    <input type="hidden" id="doc-edit-index" value="" />
     <div class="field">
-      <label>Nama Dokumen / Siswa</label>
-      <input type="text" id="doc-nama" placeholder="mis. Ijazah SD - Budi Santoso" />
+      <label>Siswa Pemilik Dokumen</label>
+      <select id="doc-siswa"></select>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Kategori Dokumen</label>
+        <select id="doc-kategori"></select>
+      </div>
+      <div class="field">
+        <label>Tahun Dokumen</label>
+        <input type="text" id="doc-tahun" placeholder="2026" />
+      </div>
     </div>
     <div class="field">
-      <label>Kategori Dokumen</label>
-      <select id="doc-kategori" style="width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; background:#fff;">
-        <option>Ijazah</option>
-        <option>Rapor</option>
-        <option>Surat masuk/keluar</option>
-        <option>Organisasi</option>
-      </select>
+      <label>Judul / Keterangan <span class="muted" style="font-weight:400;">(opsional untuk dokumen siswa)</span></label>
+      <input type="text" id="doc-nama" placeholder="mis. Rapor Semester 1, atau SK Pembina Pramuka" />
     </div>
-    <div class="field">
-      <label>Tahun Dokumen</label>
-      <input type="text" id="doc-tahun" placeholder="2026" />
+    <div class="field-row">
+      <div class="field">
+        <label>Jenis Penyimpanan</label>
+        <select id="doc-jenis">
+          <option>Fisik + Digital</option>
+          <option>Digital</option>
+          <option>Fisik</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Status Kelengkapan</label>
+        <select id="doc-status">
+          <option value="ok">Lengkap</option>
+          <option value="warn">Perlu Tindakan</option>
+          <option value="bad">Hilang / Belum Ada</option>
+        </select>
+      </div>
     </div>
-    <div class="field">
-      <label>Jenis Penyimpanan</label>
-      <select id="doc-jenis" style="width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; background:#fff;">
-        <option>Fisik + Digital</option>
-        <option>Digital</option>
-        <option>Fisik</option>
-      </select>
-    </div>
-    <div class="field">
-      <label>Status Kelengkapan</label>
-      <select id="doc-status" style="width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; background:#fff;">
-        <option value="ok">Lengkap</option>
-        <option value="warn">Perlu Tindakan</option>
-        <option value="bad">Hilang / Belum Ada</option>
-      </select>
+    <div class="field" style="margin-bottom:0;">
+      <label>File Dokumen <span class="muted" style="font-weight:400;">(PDF / JPG / PNG, maks. 5 MB)</span></label>
+      <div class="dropzone" id="doc-drop">
+        <span class="dz-ico">&#8593;</span>
+        <p><b>Klik untuk memilih file</b> atau seret ke sini</p>
+        <small id="doc-file-name">Belum ada file dipilih</small>
+      </div>
+      <input type="file" id="doc-file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" style="display:none;" />
     </div>
     <div class="modal-actions">
       <button class="btn" id="doc-cancel">Batal</button>
@@ -559,27 +633,28 @@
   </div>
 </div>
 
-<!-- ================= MODAL: TAMBAH SISWA ================= -->
+<!-- ================= MODAL: TAMBAH / EDIT SISWA ================= -->
 <div class="modal-backdrop" id="modal-siswa">
   <div class="modal">
-    <h3>Tambah Data Siswa</h3>
+    <h3 id="siswa-modal-title">Tambah Data Siswa</h3>
     <div class="field">
       <label>Nama Lengkap Siswa</label>
       <input type="text" id="siswa-nama" placeholder="mis. Ahmad Fauzi" />
     </div>
-    <div class="field">
-      <label>NISN</label>
-      <input type="text" id="siswa-nisn" placeholder="mis. 0051239999" />
+    <div class="field-row">
+      <div class="field">
+        <label>NISN</label>
+        <input type="text" id="siswa-nisn" placeholder="mis. 0051239999" inputmode="numeric" />
+      </div>
+      <div class="field">
+        <label>Kelas</label>
+        <input type="text" id="siswa-kelas" list="kelas-list" placeholder="mis. VIII A" />
+        <datalist id="kelas-list"></datalist>
+      </div>
     </div>
-    <div class="field">
-      <label>Kelas</label>
-      <input type="text" id="siswa-kelas" placeholder="mis. VIII A" />
-    </div>
-    <div class="field">
-      <label>Status Kelengkapan Dokumen</label>
-      <input type="text" id="siswa-status" placeholder="mis. Dokumen lengkap di ruang TU" value="Dokumen lengkap" />
-    </div>
+    <p class="muted" style="margin:0;">Status kelengkapan dihitung otomatis dari dokumen wajib (ijazah, akta kelahiran, KK, rapor) yang sudah diunggah.</p>
     <div class="modal-actions">
+      <button class="btn danger" id="siswa-delete" style="margin-right:auto; display:none;">Hapus Siswa</button>
       <button class="btn" id="siswa-cancel">Batal</button>
       <button class="btn primary" id="siswa-save">Simpan Data Siswa</button>
     </div>
@@ -608,6 +683,7 @@
         <tr><td style="border:none; padding:4px 0;">NISN</td><td style="border:none; padding:4px 0;">: <span id="print-nisn"></span></td></tr>
         <tr><td style="border:none; padding:4px 0;">Kelas</td><td style="border:none; padding:4px 0;">: <span id="print-kelas"></span></td></tr>
         <tr><td style="border:none; padding:4px 0;">Status Kelengkapan</td><td style="border:none; padding:4px 0;">: <span id="print-status"></span></td></tr>
+        <tr><td style="border:none; padding:4px 0; vertical-align:top;">Belum Tersedia</td><td style="border:none; padding:4px 0;">: <span id="print-missing"></span></td></tr>
       </table>
       <p style="margin-bottom:0;">Berdasarkan catatan arsip sekolah, dokumen administrasi siswa yang bersangkutan adalah sebagai berikut:</p>
       <div id="print-docs"></div>
@@ -627,95 +703,278 @@
   </div>
 </div>
 
+<!-- ================= MODAL: PREVIEW FILE ================= -->
+<div class="modal-backdrop" id="modal-preview">
+  <div class="modal" style="max-width: 840px;">
+    <h3 id="preview-title">Preview File</h3>
+    <div class="preview-body" id="preview-body"></div>
+    <div class="modal-actions">
+      <a class="btn" id="preview-download" href="#" download>&#8595; Unduh File</a>
+      <button class="btn primary" id="preview-close">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<input type="file" id="quick-file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" style="display:none;" />
 <div class="toast" id="toast"></div>
 
 <script>
-// ---------- State Aplikasi ----------
+// =====================================================================
+//  KONSTANTA
+// =====================================================================
+const REQUIRED = ['Ijazah', 'Akta Kelahiran', 'Kartu Keluarga', 'Rapor'];   // dokumen wajib per siswa
+const KATEGORI = [...REQUIRED, 'Surat masuk/keluar', 'Organisasi', 'Lainnya'];
+const KAT_LABEL = { 'Ijazah': 'Ijazah SD/MI', 'Akta Kelahiran': 'Akta Kelahiran', 'Kartu Keluarga': 'Kartu Keluarga (KK)', 'Rapor': 'Rapor' };
+const KAT_ICON  = { 'Ijazah': '&#127891;', 'Akta Kelahiran': '&#128196;', 'Kartu Keluarga': '&#128106;', 'Rapor': '&#128216;' };
+const MAX_FILE = 5 * 1024 * 1024;                      // 5 MB
+const ALLOWED = ['application/pdf', 'image/jpeg', 'image/png'];
+
+// =====================================================================
+//  STATE APLIKASI
+// =====================================================================
 let currentUser = 'staf.tu';
-let documents = [
-  {nama:'Ijazah SD - Andi Pratama', kategori:'Ijazah', tahun:'2024', jenis:'Fisik + Digital', status:'ok'},
-  {nama:'Rapor Semester 1 - Siti Marlina', kategori:'Rapor', tahun:'2025', jenis:'Digital', status:'warn'},
-  {nama:'Surat Undangan Wali Murid 2026', kategori:'Surat masuk/keluar', tahun:'2026', jenis:'Fisik + Digital', status:'ok'},
-  {nama:'SK Pembina Pramuka SMP Muh 1', kategori:'Organisasi', tahun:'2025', jenis:'Fisik', status:'warn'},
-  {nama:'Ijazah SD - Rani Kusuma', kategori:'Ijazah', tahun:'2023', jenis:'Fisik + Digital', status:'ok'},
-];
+let _uid = 1000;
+const uid = () => ++_uid;
+
 let siswa = [
-  {nama:'Andi Pratama', nisn:'0051112233', kelas:'IX A', status:'Dokumen lengkap'},
-  {nama:'Siti Marlina', nisn:'0049876543', kelas:'VIII B', status:'Perlu verifikasi dokumen fisik'},
-  {nama:'Rani Kusuma', nisn:'0051234567', kelas:'VII A', status:'Dokumen lengkap'},
-  {nama:'Nurul Hidayah', nisn:'0052345678', kelas:'VIII A', status:'Dokumen terarsip digital'},
-];
+  ['Rani Kusuma', '0051234567', 'VII A'],
+  ['Bagas Saputra', '0061122334', 'VII A'],
+  ['Dewi Anggraini', '0062233445', 'VII A'],
+  ['Fajar Ramadhan', '0063344556', 'VII B'],
+  ['Putri Amelia', '0064455667', 'VII B'],
+  ['Nurul Hidayah', '0052345678', 'VIII A'],
+  ['Rizky Firmansyah', '0053456789', 'VIII A'],
+  ['Salsabila Putri', '0054567890', 'VIII A'],
+  ['Siti Marlina', '0049876543', 'VIII B'],
+  ['Dedi Firmansyah', '0048765432', 'VIII B'],
+  ['Andi Pratama', '0051112233', 'IX A'],
+  ['Maya Lestari', '0042233445', 'IX A'],
+  ['Yoga Prasetyo', '0043344556', 'IX A'],
+].map((r, i) => ({ id: i + 1, nama: r[0], nisn: r[1], kelas: r[2] }));
+
+let documents = [];
+function seedDoc(siswaId, kategori, judul, tahun, jenis, status) {
+  documents.push({ id: uid(), siswaId, kategori, judul, tahun, jenis, status, file: null });
+}
+// [siswaId, kategori, judul, tahun, jenis, status]
+[
+  [11,'Ijazah','','2024','Fisik + Digital','ok'], [11,'Akta Kelahiran','','2024','Fisik + Digital','ok'],
+  [11,'Kartu Keluarga','','2024','Fisik + Digital','ok'], [11,'Rapor','Rapor Semester 1','2025','Digital','ok'],
+  [11,'Lainnya','Sertifikat Juara Olimpiade','2025','Digital','ok'],
+  [12,'Ijazah','','2024','Fisik + Digital','ok'], [12,'Akta Kelahiran','','2024','Fisik','ok'],
+  [12,'Kartu Keluarga','','2024','Digital','ok'], [12,'Rapor','Rapor Semester 1','2025','Digital','warn'],
+  [13,'Ijazah','','2024','Fisik + Digital','ok'], [13,'Kartu Keluarga','','2024','Fisik','warn'],
+  [9,'Ijazah','','2023','Fisik + Digital','ok'], [9,'Akta Kelahiran','','2023','Fisik','ok'],
+  [9,'Kartu Keluarga','','2023','Digital','ok'], [9,'Rapor','Rapor Semester 1','2025','Digital','warn'],
+  [10,'Ijazah','','2023','Fisik','ok'], [10,'Akta Kelahiran','','2023','Fisik','ok'],
+  [6,'Ijazah','','2023','Digital','ok'], [6,'Akta Kelahiran','','2023','Digital','ok'],
+  [6,'Kartu Keluarga','','2023','Digital','ok'], [6,'Rapor','Rapor Semester 1','2025','Digital','ok'],
+  [7,'Ijazah','','2023','Fisik + Digital','ok'], [7,'Kartu Keluarga','','2023','Fisik + Digital','ok'],
+  [7,'Akta Kelahiran','','2023','Fisik','warn'],
+  [8,'Ijazah','','2023','Fisik + Digital','ok'],
+  [1,'Ijazah','','2023','Fisik + Digital','ok'], [1,'Akta Kelahiran','','2023','Fisik + Digital','ok'],
+  [1,'Kartu Keluarga','','2023','Fisik','warn'],
+  [2,'Ijazah','','2025','Digital','ok'], [2,'Akta Kelahiran','','2025','Digital','ok'],
+  [2,'Kartu Keluarga','','2025','Digital','ok'], [2,'Rapor','Rapor Kelas 6 SD','2025','Digital','ok'],
+  [3,'Ijazah','','2025','Fisik + Digital','ok'], [3,'Kartu Keluarga','','2025','Fisik + Digital','ok'],
+  [5,'Ijazah','','2025','Fisik','ok'], [5,'Akta Kelahiran','','2025','Fisik','ok'],
+  [5,'Kartu Keluarga','','2025','Digital','ok'], [5,'Rapor','Rapor Kelas 6 SD','2025','Fisik + Digital','ok'],
+  [null,'Surat masuk/keluar','Surat Undangan Wali Murid 2026','2026','Fisik + Digital','ok'],
+  [null,'Organisasi','SK Pembina Pramuka SMP Muh 1','2025','Fisik','warn'],
+].forEach(r => seedDoc(...r));
+
 let activity = [
-  {t:'09:02 WIB', text:'Google Drive tersinkronisasi otomatis'},
-  {t:'08:40 WIB', text:'Laptop sekolah tersinkronisasi otomatis'},
-  {t:'Kemarin', text:'Staf TU menambahkan 3 dokumen baru ke arsip'},
+  { t: '09:02 WIB', text: 'Google Drive tersinkronisasi otomatis' },
+  { t: '08:40 WIB', text: 'Laptop sekolah tersinkronisasi otomatis' },
+  { t: 'Kemarin',   text: 'Staf TU menambahkan 3 dokumen baru ke arsip' },
 ];
 
-// ---------- Helpers ----------
-function toast(msg) {
+let collapsed = {};          // status buka/tutup kelompok kelas: { 'siswa:VII A': true }
+let currentBerkasId = null;  // siswa yang sedang dibuka di modal Berkas
+let editingDocId = null;
+let editingSiswaId = null;
+let quickTarget = null;      // target unggah cepat: {docId} atau {siswaId, kategori}
+
+// =====================================================================
+//  HELPERS
+// =====================================================================
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+function toast(msg, type) {
   const el = document.getElementById('toast');
-  el.innerHTML = '<span>&#10003;</span> ' + msg;
+  el.innerHTML = '<span>' + (type === 'error' ? '&#9888;' : '&#10003;') + '</span> ' + msg;
+  el.classList.toggle('error', type === 'error');
   el.classList.add('show');
-  setTimeout(() => el.classList.remove('show'), 2500);
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => el.classList.remove('show'), 2800);
 }
+function logAct(text) { activity.unshift({ t: 'Baru saja', text }); }
+function fmtSize(b) {
+  if (b < 1024) return b + ' B';
+  if (b < 1048576) return Math.round(b / 1024) + ' KB';
+  return (b / 1048576).toFixed(1) + ' MB';
+}
+function trunc(s, n = 22) { return s.length > n ? s.slice(0, n - 1) + '…' : s; }
 
-function badge(status, index = null) {
+// --- kelas: urutkan VII < VIII < IX, lalu huruf rombel ---
+function kelasKey(k) {
+  const m = String(k).trim().toUpperCase().match(/^(VIII|VII|IX)\s*(.*)$/);
+  return m ? [{ VII: 7, VIII: 8, IX: 9 }[m[1]], m[2]] : [99, String(k)];
+}
+function cmpKelas(a, b) { const A = kelasKey(a), B = kelasKey(b); return (A[0] - B[0]) || A[1].localeCompare(B[1]); }
+function kelasList() { return [...new Set(siswa.map(s => s.kelas))].sort(cmpKelas); }
+function normKelas(v) { return v.trim().toUpperCase().replace(/\s+/g, ' '); }
+
+function getSiswa(id) { return siswa.find(s => s.id === id); }
+function docsOf(id) { return documents.filter(d => d.siswaId === id); }
+function slotDoc(id, kat) { return documents.find(d => d.siswaId === id && d.kategori === kat); }
+function docTitle(d) { return d.judul || KAT_LABEL[d.kategori] || d.kategori; }
+
+// --- kelengkapan dokumen wajib per siswa ---
+function progress(id) {
+  const done = REQUIRED.filter(k => { const d = slotDoc(id, k); return d && d.status === 'ok'; });
+  const missing = REQUIRED.filter(k => !done.includes(k));
+  const hasAny = REQUIRED.some(k => slotDoc(id, k));
+  const cls = done.length === REQUIRED.length ? 'ok' : (hasAny ? 'warn' : 'bad');
+  return {
+    done: done.length, total: REQUIRED.length, missing, cls,
+    label: { ok: 'Lengkap', warn: 'Belum Lengkap', bad: 'Belum Ada Dokumen' }[cls],
+    pct: Math.round(done.length / REQUIRED.length * 100)
+  };
+}
+function kelasStats(k) {
+  const members = siswa.filter(s => s.kelas === k);
+  let done = 0, incomplete = 0;
+  members.forEach(s => { const p = progress(s.id); done += p.done; if (p.cls !== 'ok') incomplete++; });
+  const total = members.length * REQUIRED.length;
+  return { n: members.length, pct: total ? Math.round(done / total * 100) : 0, incomplete };
+}
+const barCls = p => p >= 75 ? 'ok' : (p >= 40 ? 'warn' : 'bad');
+const bar = (pct, cls) => `<div class="bar ${cls}"><i style="width:${pct}%"></i></div>`;
+
+function badge(status, docId = null) {
   if (status === 'ok') return '<span class="badge ok">&#10003; Lengkap</span>';
-  if (status === 'warn') {
-    const clickAttr = index !== null ? ` onclick="resolveDoc(${index})" style="cursor:pointer;" title="Klik untuk tandai selesai"` : '';
-    return `<span class="badge warn"${clickAttr}>&#9888; Perlu Tindakan</span>`;
+  const cls = status === 'warn' ? 'warn' : 'bad';
+  const label = status === 'warn' ? '&#9888; Perlu Tindakan' : '&#10007; Hilang';
+  const click = docId !== null ? ` onclick="resolveDoc(${docId})" style="cursor:pointer;" title="Klik untuk tandai selesai"` : '';
+  return `<span class="badge ${cls}"${click}>${label}</span>`;
+}
+function statusText(s) { return s === 'ok' ? 'Lengkap' : (s === 'warn' ? 'Perlu Tindakan' : 'Hilang / Belum Ada'); }
+
+function groupRow(scope, key, label, count, unit, meta, colspan) {
+  const isC = !!collapsed[scope + ':' + key];
+  return `<tr class="group-row" data-scope="${scope}" data-key="${esc(key)}"><td colspan="${colspan}">
+    <span class="caret">${isC ? '&#9656;' : '&#9662;'}</span>${esc(label)}
+    <span class="pill">${count} ${unit}</span>${meta ? `<span class="group-meta">${meta}</span>` : ''}
+  </td></tr>`;
+}
+document.addEventListener('click', e => {
+  const g = e.target.closest('tr.group-row');
+  if (!g) return;
+  const k = g.dataset.scope + ':' + g.dataset.key;
+  collapsed[k] = !collapsed[k];
+  renderAll();
+});
+
+// =====================================================================
+//  FILE: validasi, lampirkan, pratinjau
+// =====================================================================
+function validateFile(f) {
+  if (!ALLOWED.includes(f.type)) return 'Format file harus PDF, JPG, atau PNG';
+  if (f.size > MAX_FILE) return 'Ukuran file maksimal 5 MB (file ini ' + fmtSize(f.size) + ')';
+  return '';
+}
+function attachFile(d, f) {
+  if (d.file) URL.revokeObjectURL(d.file.url);
+  d.file = { name: f.name, size: f.size, type: f.type, url: URL.createObjectURL(f) };
+  d.status = 'ok';
+  if (d.jenis === 'Fisik') d.jenis = 'Fisik + Digital';
+}
+function pickFile(target) {
+  quickTarget = target;
+  const i = document.getElementById('quick-file');
+  i.value = '';
+  i.click();
+}
+document.getElementById('quick-file').addEventListener('change', e => {
+  const f = e.target.files[0];
+  if (!f || !quickTarget) return;
+  const err = validateFile(f);
+  if (err) { toast(err, 'error'); return; }
+  let d;
+  if (quickTarget.docId) {
+    d = documents.find(x => x.id === quickTarget.docId);
+  } else {
+    d = slotDoc(quickTarget.siswaId, quickTarget.kategori);
+    if (!d) {
+      d = { id: uid(), siswaId: quickTarget.siswaId, kategori: quickTarget.kategori, judul: '',
+            tahun: String(new Date().getFullYear()), jenis: 'Digital', status: 'ok', file: null };
+      documents.push(d);
+    }
   }
-  const clickAttr = index !== null ? ` onclick="resolveDoc(${index})" style="cursor:pointer;" title="Klik untuk tandai selesai"` : '';
-  return `<span class="badge bad"${clickAttr}>&#10007; Hilang</span>`;
+  attachFile(d, f);
+  const s = d.siswaId ? getSiswa(d.siswaId) : null;
+  logAct(`File "${f.name}" diunggah untuk ${docTitle(d)}${s ? ' — ' + s.nama : ''}`);
+  toast('File berhasil diunggah');
+  quickTarget = null;
+  renderAll();
+});
+
+function openPreview(docId) {
+  const d = documents.find(x => x.id === docId);
+  if (!d || !d.file) return;
+  const s = d.siswaId ? getSiswa(d.siswaId) : null;
+  document.getElementById('preview-title').textContent = docTitle(d) + (s ? ' — ' + s.nama : '');
+  const body = document.getElementById('preview-body');
+  if (d.file.type === 'application/pdf') body.innerHTML = `<iframe src="${d.file.url}" title="Preview PDF"></iframe>`;
+  else if (d.file.type.startsWith('image/')) body.innerHTML = `<img src="${d.file.url}" alt="Preview dokumen" />`;
+  else body.innerHTML = '<p class="muted">Pratinjau tidak tersedia untuk tipe file ini.</p>';
+  const a = document.getElementById('preview-download');
+  a.href = d.file.url; a.download = d.file.name;
+  document.getElementById('modal-preview').classList.add('show');
 }
 
-function statusText(status) {
-  if (status === 'ok') return 'Lengkap';
-  if (status === 'warn') return 'Perlu Tindakan';
-  return 'Hilang / Belum Ada';
+function closeModal(id) {
+  document.getElementById(id).classList.remove('show');
+  if (id === 'modal-preview') document.getElementById('preview-body').innerHTML = '';
+  if (id === 'modal-berkas') currentBerkasId = null;
 }
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  const open = [...document.querySelectorAll('.modal-backdrop.show')];
+  if (open.length) closeModal(open[open.length - 1].id);
+});
 
-// ---------- Login Handlers ----------
+// =====================================================================
+//  LOGIN & NAVIGASI
+// =====================================================================
 document.getElementById('login-btn').addEventListener('click', () => {
   const user = document.getElementById('login-user').value.trim();
   const pass = document.getElementById('login-pass').value.trim();
-  if (!user || !pass) {
-    toast('Username dan password Staf TU wajib diisi!');
-    return;
-  }
+  if (!user || !pass) { toast('Username dan password Staf TU wajib diisi!', 'error'); return; }
   currentUser = user;
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app').classList.add('show');
-
   document.getElementById('user-name').textContent = user;
   document.getElementById('user-av').textContent = user.slice(0, 2).toUpperCase();
-
   toast('Selamat datang, Staf TU ' + user);
   showPage('dashboard');
   renderAll();
 });
-
 document.getElementById('logout-btn').addEventListener('click', () => {
   document.getElementById('app').classList.remove('show');
   document.getElementById('login-screen').style.display = 'flex';
   toast('Berhasil keluar dari sistem');
 });
 
-// ---------- Routing & Navigasi ----------
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + name);
   if (target) target.classList.add('active');
-
-  document.querySelectorAll('.nav-item').forEach(n => {
-    n.classList.toggle('active', n.dataset.page === name);
-  });
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.page === name));
 }
-
-document.querySelectorAll('.nav-item').forEach(btn => {
-  btn.addEventListener('click', () => showPage(btn.dataset.page));
-});
-
+document.querySelectorAll('.nav-item').forEach(btn => btn.addEventListener('click', () => showPage(btn.dataset.page)));
 document.querySelectorAll('.menu-card').forEach(card => {
   card.addEventListener('click', () => {
     showPage(card.dataset.page);
@@ -723,216 +982,452 @@ document.querySelectorAll('.menu-card').forEach(card => {
   });
 });
 
-// ---------- Render: Dokumen Administrasi ----------
-function renderArsip() {
-  const q = document.getElementById('arsip-search').value.toLowerCase();
-  const kat = document.getElementById('arsip-filter-kat').value;
-  const st = document.getElementById('arsip-filter-status').value;
-  const tbody = document.getElementById('arsip-tbody');
+// =====================================================================
+//  RENDER: DASBOR
+// =====================================================================
+function renderDashboard() {
+  document.getElementById('stat-docs').textContent = documents.length;
+  document.getElementById('stat-pending').textContent = documents.filter(d => d.status !== 'ok').length;
+  document.getElementById('stat-siswa').textContent = siswa.length;
 
-  const filtered = documents.filter(d => {
-    const matchQ = d.nama.toLowerCase().includes(q) || d.tahun.includes(q);
-    const matchKat = !kat || d.kategori === kat;
-    const matchSt = !st || d.status === st;
-    return matchQ && matchKat && matchSt;
-  });
-
-  tbody.innerHTML = filtered.map((d) => {
-    const realIndex = documents.indexOf(d);
-    return `
-      <tr>
-        <td><strong>${d.nama}</strong></td>
-        <td>${d.kategori}</td>
-        <td>${d.tahun}</td>
-        <td>${d.jenis}</td>
-        <td>${badge(d.status, realIndex)}</td>
-        <td style="text-align:right;">
-          <div class="action-btns">
-            <button class="row-btn" onclick="openDocModal(${realIndex})">Edit</button>
-            <button class="row-btn danger" onclick="deleteDoc(${realIndex})">Hapus</button>
-          </div>
-        </td>
-      </tr>`;
-  }).join('') || `<tr><td colspan="6" style="color:var(--text-muted); text-align:center; padding:28px;">Tidak ada dokumen yang sesuai.</td></tr>`;
+  document.getElementById('kelas-summary').innerHTML = kelasList().map(k => {
+    const st = kelasStats(k);
+    return `<div class="card kelas-card" data-kelas="${esc(k)}">
+      <div class="kc-top"><strong>Kelas ${esc(k)}</strong><span class="pill">${st.n} siswa</span></div>
+      ${bar(st.pct, barCls(st.pct))}
+      <p class="kc-meta"><b>${st.pct}%</b> dokumen wajib lengkap</p>
+      <p class="kc-meta">${st.incomplete ? st.incomplete + ' siswa belum lengkap' : 'Semua siswa lengkap'}</p>
+    </div>`;
+  }).join('') || '<p class="muted">Belum ada data siswa.</p>';
 }
-
-function resolveDoc(index) {
-  const d = documents[index];
-  d.status = 'ok';
-  activity.unshift({ t: 'Baru saja', text: `Tindakan selesai: Dokumen "${d.nama}" kini berstatus Lengkap` });
-  toast(`Status "${d.nama}" berhasil diubah menjadi Lengkap!`);
-  renderAll();
-}
-
-document.getElementById('arsip-search').addEventListener('input', renderArsip);
-document.getElementById('arsip-filter-kat').addEventListener('change', renderArsip);
-document.getElementById('arsip-filter-status').addEventListener('change', renderArsip);
-
-// ---------- Modal: Edit & Tambah Dokumen ----------
-function openDocModal(index = null) {
-  const modal = document.getElementById('modal-doc');
-  const title = document.getElementById('modal-doc-title');
-  document.getElementById('doc-edit-index').value = index !== null ? index : '';
-
-  if (index !== null) {
-    const d = documents[index];
-    title.textContent = 'Edit Dokumen Siswa';
-    document.getElementById('doc-nama').value = d.nama;
-    document.getElementById('doc-kategori').value = d.kategori;
-    document.getElementById('doc-tahun').value = d.tahun;
-    document.getElementById('doc-jenis').value = d.jenis;
-    document.getElementById('doc-status').value = d.status;
-  } else {
-    title.textContent = 'Unggah Dokumen Baru';
-    document.getElementById('doc-nama').value = '';
-    document.getElementById('doc-tahun').value = '2026';
-    document.getElementById('doc-status').value = 'ok';
-  }
-  modal.classList.add('show');
-}
-
-document.getElementById('btn-add-doc').addEventListener('click', () => openDocModal());
-document.getElementById('doc-cancel').addEventListener('click', () => document.getElementById('modal-doc').classList.remove('show'));
-
-document.getElementById('doc-save').addEventListener('click', () => {
-  const nama = document.getElementById('doc-nama').value.trim();
-  const indexVal = document.getElementById('doc-edit-index').value;
-  if (!nama) {
-    document.getElementById('doc-nama').style.borderColor = 'var(--red)';
-    toast('Nama dokumen wajib diisi!');
-    return;
-  }
-
-  const docObj = {
-    nama,
-    kategori: document.getElementById('doc-kategori').value,
-    tahun: document.getElementById('doc-tahun').value || '2026',
-    jenis: document.getElementById('doc-jenis').value,
-    status: document.getElementById('doc-status').value
-  };
-
-  if (indexVal !== '') {
-    documents[indexVal] = docObj;
-    activity.unshift({ t: 'Baru saja', text: `Dokumen "${nama}" diperbarui oleh Staf TU` });
-    toast('Dokumen berhasil diperbarui');
-  } else {
-    documents.unshift(docObj);
-    activity.unshift({ t: 'Baru saja', text: `Dokumen baru "${nama}" diunggah ke arsip` });
-    toast('Dokumen baru berhasil disimpan');
-  }
-
-  document.getElementById('modal-doc').classList.remove('show');
-  renderAll();
+document.getElementById('kelas-summary').addEventListener('click', e => {
+  const c = e.target.closest('.kelas-card');
+  if (!c) return;
+  showPage('siswa');
+  document.getElementById('siswa-filter-kelas').value = c.dataset.kelas;
+  renderSiswa();
 });
 
-function deleteDoc(index) {
-  if (confirm(`Apakah Anda yakin ingin menghapus dokumen "${documents[index].nama}"?`)) {
-    const nama = documents[index].nama;
-    documents.splice(index, 1);
-    activity.unshift({ t: 'Baru saja', text: `Dokumen "${nama}" dihapus dari arsip` });
-    toast('Dokumen telah dihapus');
-    renderAll();
-  }
+function renderActivity() {
+  document.getElementById('activity-log').innerHTML = activity.slice(0, 8).map(a => `
+    <div class="activity-item">
+      <div class="dot"></div>
+      <div style="flex:1;"><strong>${esc(a.text)}</strong></div>
+      <div class="t">${esc(a.t)}</div>
+    </div>`).join('');
 }
 
-// ---------- Render: Data Siswa ----------
+// =====================================================================
+//  RENDER: FILTER KELAS
+// =====================================================================
+function fillKelasSelects() {
+  const list = kelasList();
+  const s1 = document.getElementById('siswa-filter-kelas'), v1 = s1.value;
+  s1.innerHTML = '<option value="">Semua Kelas</option>' + list.map(k => `<option value="${esc(k)}">Kelas ${esc(k)}</option>`).join('');
+  s1.value = list.includes(v1) ? v1 : '';
+
+  const s2 = document.getElementById('arsip-filter-kelas'), v2 = s2.value;
+  s2.innerHTML = '<option value="">Semua Kelas</option>' + list.map(k => `<option value="${esc(k)}">Kelas ${esc(k)}</option>`).join('')
+    + '<option value="__umum">Dokumen Umum (Non-Siswa)</option>';
+  s2.value = [...list, '__umum'].includes(v2) ? v2 : '';
+
+  document.getElementById('kelas-list').innerHTML = list.map(k => `<option value="${esc(k)}">`).join('');
+}
+
+// =====================================================================
+//  RENDER: DATA SISWA (dikelompokkan per kelas)
+// =====================================================================
 function renderSiswa() {
   const q = document.getElementById('siswa-search').value.toLowerCase();
-  const tbody = document.getElementById('siswa-tbody');
+  const kf = document.getElementById('siswa-filter-kelas').value;
+  const sf = document.getElementById('siswa-filter-status').value;
 
-  const filtered = siswa.filter(s =>
-    s.nama.toLowerCase().includes(q) || s.nisn.includes(q) || s.kelas.toLowerCase().includes(q)
-  );
+  const filtered = siswa.filter(s => {
+    const hay = (s.nama + ' ' + s.nisn + ' ' + s.kelas).toLowerCase();
+    if (q && !hay.includes(q)) return false;
+    if (kf && s.kelas !== kf) return false;
+    if (sf && progress(s.id).cls !== sf) return false;
+    return true;
+  });
 
-  tbody.innerHTML = filtered.map((s) => {
-    const index = siswa.indexOf(s);
-    const isPending = s.status.toLowerCase().includes('perlu');
-    const badgeClass = isPending ? 'warn' : 'ok';
-    const clickAttr = isPending ? ` onclick="verifySiswa(${index})" style="cursor:pointer;" title="Klik untuk verifikasi"` : '';
-    return `
-      <tr>
-        <td><strong>${s.nama}</strong></td>
-        <td>${s.nisn}</td>
-        <td>${s.kelas}</td>
-        <td><span class="badge ${badgeClass}"${clickAttr}>${s.status}</span></td>
-        <td style="text-align:right;">
-          <div class="action-btns">
-            <button class="row-btn" onclick="openPrintDokumen(${index})">&#128438; Cetak Dokumen</button>
-          </div>
-        </td>
-      </tr>`;
-  }).join('') || `<tr><td colspan="5" style="color:var(--text-muted); text-align:center; padding:28px;">Data siswa tidak ditemukan.</td></tr>`;
+  const html = kelasList().map(k => {
+    const list = filtered.filter(s => s.kelas === k).sort((a, b) => a.nama.localeCompare(b.nama));
+    if (!list.length) return '';
+    const st = kelasStats(k);
+    let out = groupRow('siswa', k, 'Kelas ' + k, list.length, 'siswa', `${st.pct}% dokumen wajib lengkap`, 5);
+    if (!collapsed['siswa:' + k]) {
+      out += list.map(s => {
+        const p = progress(s.id);
+        const ic = { ok: '&#10003;', warn: '&#9888;', bad: '&#10007;' }[p.cls];
+        return `<tr>
+          <td><strong>${esc(s.nama)}</strong></td>
+          <td>${esc(s.nisn)}</td>
+          <td><div class="prog-cell">${bar(p.pct, p.cls)}<span>${p.done}/${p.total}</span></div></td>
+          <td><span class="badge ${p.cls}">${ic} ${p.label}</span></td>
+          <td style="text-align:right;"><div class="action-btns">
+            <button class="row-btn accent" onclick="openBerkas(${s.id})">&#128193; Berkas</button>
+            <button class="row-btn" onclick="openPrintDokumen(${s.id})">&#128438; Cetak Dokumen</button>
+            <button class="row-btn" onclick="openSiswaModal(${s.id})">Edit</button>
+          </div></td>
+        </tr>`;
+      }).join('');
+    }
+    return out;
+  }).join('');
+
+  document.getElementById('siswa-tbody').innerHTML = html ||
+    `<tr><td colspan="5" style="color:var(--text-muted); text-align:center; padding:28px;">Data siswa tidak ditemukan.</td></tr>`;
 }
+['input', 'change'].forEach(ev => {
+  document.getElementById('siswa-search').addEventListener(ev, renderSiswa);
+  document.getElementById('siswa-filter-kelas').addEventListener(ev, renderSiswa);
+  document.getElementById('siswa-filter-status').addEventListener(ev, renderSiswa);
+});
 
-function verifySiswa(index) {
-  const s = siswa[index];
-  s.status = 'Dokumen terverifikasi lengkap';
-  activity.unshift({ t: 'Baru saja', text: `Staf TU memverifikasi dokumen siswa "${s.nama}"` });
-  toast(`Dokumen siswa "${s.nama}" berhasil diverifikasi!`);
+// =====================================================================
+//  RENDER: DOKUMEN (dikelompokkan per kelas)
+// =====================================================================
+function renderArsip() {
+  const q = document.getElementById('arsip-search').value.toLowerCase();
+  const kf = document.getElementById('arsip-filter-kelas').value;
+  const kat = document.getElementById('arsip-filter-kat').value;
+  const st = document.getElementById('arsip-filter-status').value;
+
+  const rows = documents.filter(d => {
+    const s = d.siswaId ? getSiswa(d.siswaId) : null;
+    const hay = (docTitle(d) + ' ' + d.kategori + ' ' + d.tahun + ' ' + (s ? s.nama + ' ' + s.nisn + ' ' + s.kelas : 'umum')).toLowerCase();
+    if (q && !hay.includes(q)) return false;
+    if (kf === '__umum' && s) return false;
+    if (kf && kf !== '__umum' && (!s || s.kelas !== kf)) return false;
+    if (kat && d.kategori !== kat) return false;
+    if (st && d.status !== st) return false;
+    return true;
+  });
+
+  const sortDocs = list => list.sort((a, b) => {
+    const sa = a.siswaId ? getSiswa(a.siswaId).nama : '', sb = b.siswaId ? getSiswa(b.siswaId).nama : '';
+    return sa.localeCompare(sb) || KATEGORI.indexOf(a.kategori) - KATEGORI.indexOf(b.kategori);
+  });
+
+  const groups = kelasList().map(k => ({
+    key: k, label: 'Kelas ' + k,
+    list: sortDocs(rows.filter(d => { const s = d.siswaId && getSiswa(d.siswaId); return s && s.kelas === k; }))
+  }));
+  groups.push({ key: '__umum', label: 'Dokumen Umum (Non-Siswa)', list: sortDocs(rows.filter(d => !d.siswaId || !getSiswa(d.siswaId))) });
+
+  const html = groups.map(g => {
+    if (!g.list.length) return '';
+    const withFile = g.list.filter(d => d.file).length;
+    let out = groupRow('dok', g.key, g.label, g.list.length, 'dokumen', `${withFile} file terunggah`, 7);
+    if (!collapsed['dok:' + g.key]) {
+      out += g.list.map(d => {
+        const s = d.siswaId ? getSiswa(d.siswaId) : null;
+        const fileCell = d.file
+          ? `<button class="file-link" onclick="openPreview(${d.id})" title="${esc(d.file.name)}">&#128206; <span class="fn">${esc(trunc(d.file.name))}</span><small>${fmtSize(d.file.size)}</small></button>`
+          : '<span class="muted">Belum ada file</span>';
+        return `<tr>
+          <td><strong>${esc(docTitle(d))}</strong><div class="sub">${s ? esc(s.nama) + ' · NISN ' + esc(s.nisn) : 'Dokumen umum sekolah'}</div></td>
+          <td>${esc(d.kategori)}</td>
+          <td>${esc(d.tahun)}</td>
+          <td>${esc(d.jenis)}</td>
+          <td>${fileCell}</td>
+          <td>${badge(d.status, d.id)}</td>
+          <td style="text-align:right;"><div class="action-btns">
+            ${d.file ? `<button class="row-btn" onclick="openPreview(${d.id})">Lihat</button>` : `<button class="row-btn accent" onclick="pickFile({docId:${d.id}})">&#8593; Unggah</button>`}
+            <button class="row-btn" onclick="openDocModal(${d.id})">Edit</button>
+            <button class="row-btn danger" onclick="deleteDoc(${d.id})">Hapus</button>
+          </div></td>
+        </tr>`;
+      }).join('');
+    }
+    return out;
+  }).join('');
+
+  document.getElementById('arsip-tbody').innerHTML = html ||
+    `<tr><td colspan="7" style="color:var(--text-muted); text-align:center; padding:28px;">Tidak ada dokumen yang sesuai.</td></tr>`;
+}
+['input', 'change'].forEach(ev => {
+  ['arsip-search', 'arsip-filter-kelas', 'arsip-filter-kat', 'arsip-filter-status']
+    .forEach(id => document.getElementById(id).addEventListener(ev, renderArsip));
+});
+
+function resolveDoc(id) {
+  const d = documents.find(x => x.id === id);
+  if (!d) return;
+  d.status = 'ok';
+  logAct(`Tindakan selesai: "${docTitle(d)}" kini berstatus Lengkap`);
+  toast(`Status "${docTitle(d)}" diubah menjadi Lengkap`);
+  renderAll();
+}
+function deleteDoc(id) {
+  const d = documents.find(x => x.id === id);
+  if (!d) return;
+  if (!confirm(`Hapus dokumen "${docTitle(d)}"${d.siswaId ? ' milik ' + getSiswa(d.siswaId).nama : ''}?`)) return;
+  if (d.file) URL.revokeObjectURL(d.file.url);
+  documents = documents.filter(x => x.id !== id);
+  logAct(`Dokumen "${docTitle(d)}" dihapus dari arsip`);
+  toast('Dokumen telah dihapus');
+  renderAll();
+}
+function markPhysical(siswaId, kategori) {
+  documents.push({ id: uid(), siswaId, kategori, judul: '', tahun: String(new Date().getFullYear()), jenis: 'Fisik', status: 'ok', file: null });
+  logAct(`${KAT_LABEL[kategori]} fisik dicatat untuk ${getSiswa(siswaId).nama}`);
+  toast(`${KAT_LABEL[kategori]} fisik dicatat`);
   renderAll();
 }
 
-document.getElementById('siswa-search').addEventListener('input', renderSiswa);
+// =====================================================================
+//  MODAL: BERKAS SISWA
+// =====================================================================
+function berkasRow(icon, title, d, siswaId, kat) {
+  let status, meta, btns;
+  if (!d) {
+    status = '<span class="badge bad">&#10007; Belum Ada</span>';
+    meta = 'Belum diunggah';
+    btns = `<button class="row-btn accent" onclick="pickFile({siswaId:${siswaId},kategori:'${kat}'})">&#8593; Unggah File</button>
+            <button class="row-btn" onclick="markPhysical(${siswaId},'${kat}')">Tandai Fisik Ada</button>`;
+  } else {
+    status = badge(d.status, d.id);
+    meta = (d.file ? '&#128206; ' + esc(d.file.name) + ' · ' + fmtSize(d.file.size) : 'Tanpa file digital')
+         + ' · ' + esc(d.tahun) + ' · ' + esc(d.jenis);
+    btns = (d.file ? `<button class="row-btn" onclick="openPreview(${d.id})">Lihat</button>` : '')
+         + `<button class="row-btn ${d.file ? '' : 'accent'}" onclick="pickFile({docId:${d.id}})">${d.file ? 'Ganti File' : '&#8593; Unggah File'}</button>
+            <button class="row-btn" onclick="openDocModal(${d.id})">Edit</button>
+            <button class="row-btn danger" onclick="deleteDoc(${d.id})">Hapus</button>`;
+  }
+  return `<div class="req-row">
+    <div class="req-ico">${icon}</div>
+    <div class="req-main"><p class="req-name">${esc(title)}</p><p class="req-meta">${meta}</p></div>
+    <div>${status}</div>
+    <div class="req-actions">${btns}</div>
+  </div>`;
+}
 
-// ---------- Modal: Tambah Siswa ----------
-document.getElementById('btn-add-siswa').addEventListener('click', () => {
+function renderBerkas() {
+  const s = getSiswa(currentBerkasId);
+  if (!s) return;
+  const p = progress(s.id);
+  const slots = REQUIRED.map(k => slotDoc(s.id, k));
+  const extras = docsOf(s.id).filter(d => !slots.includes(d));
+
+  document.getElementById('berkas-body').innerHTML = `
+    <div class="berkas-head">
+      <div>
+        <p class="nm">${esc(s.nama)}</p>
+        <p class="meta">NISN ${esc(s.nisn)} · Kelas ${esc(s.kelas)}</p>
+      </div>
+      <div class="berkas-prog">
+        <div class="row"><span>Dokumen wajib lengkap</span><span>${p.done}/${p.total}</span></div>
+        ${bar(p.pct, p.cls)}
+      </div>
+    </div>
+
+    <div class="berkas-section"><span>Dokumen Wajib</span></div>
+    ${REQUIRED.map((k, i) => berkasRow(KAT_ICON[k], KAT_LABEL[k], slots[i], s.id, k)).join('')}
+
+    <div class="berkas-section">
+      <span>Dokumen Tambahan (${extras.length})</span>
+      <button class="row-btn accent" onclick="openDocModal(null,{siswaId:${s.id},kategori:'Lainnya'})">+ Unggah Dokumen Lain</button>
+    </div>
+    ${extras.length
+      ? extras.map(d => berkasRow('&#128206;', docTitle(d), d, s.id, d.kategori)).join('')
+      : '<p class="empty-note">Belum ada dokumen tambahan (mis. rapor semester lain, sertifikat, surat keterangan).</p>'}
+  `;
+}
+function openBerkas(id) {
+  currentBerkasId = id;
+  renderBerkas();
+  document.getElementById('modal-berkas').classList.add('show');
+}
+document.getElementById('berkas-close').addEventListener('click', () => closeModal('modal-berkas'));
+document.getElementById('berkas-print').addEventListener('click', () => { if (currentBerkasId) openPrintDokumen(currentBerkasId); });
+
+// =====================================================================
+//  MODAL: UNGGAH / EDIT DOKUMEN
+// =====================================================================
+function fillSiswaSelect(selectedId) {
+  const el = document.getElementById('doc-siswa');
+  el.innerHTML = '<option value="">— Dokumen Umum (tidak terkait siswa) —</option>' +
+    kelasList().map(k => `<optgroup label="Kelas ${esc(k)}">` +
+      siswa.filter(s => s.kelas === k).sort((a, b) => a.nama.localeCompare(b.nama))
+        .map(s => `<option value="${s.id}">${esc(s.nama)} (${esc(s.nisn)})</option>`).join('') +
+    '</optgroup>').join('');
+  el.value = selectedId ? String(selectedId) : '';
+}
+function setFileLabel(text) { document.getElementById('doc-file-name').textContent = text; }
+
+function openDocModal(id = null, preset = {}) {
+  editingDocId = id;
+  const d = id !== null ? documents.find(x => x.id === id) : null;
+  fillSiswaSelect(d ? d.siswaId : preset.siswaId);
+  document.getElementById('modal-doc-title').textContent = d ? 'Edit Dokumen' : 'Unggah Dokumen Baru';
+  document.getElementById('doc-save').textContent = d ? 'Simpan Perubahan' : 'Simpan Dokumen';
+  document.getElementById('doc-kategori').value = d ? d.kategori : (preset.kategori || 'Ijazah');
+  document.getElementById('doc-nama').value = d ? d.judul : '';
+  document.getElementById('doc-nama').style.borderColor = '';
+  document.getElementById('doc-tahun').value = d ? d.tahun : String(new Date().getFullYear());
+  document.getElementById('doc-jenis').value = d ? d.jenis : 'Fisik + Digital';
+  document.getElementById('doc-status').value = d ? d.status : 'ok';
+  document.getElementById('doc-file').value = '';
+  setFileLabel(d && d.file ? `File saat ini: ${d.file.name} (${fmtSize(d.file.size)}) — pilih file baru untuk mengganti` : 'Belum ada file dipilih');
+  document.getElementById('modal-doc').classList.add('show');
+}
+document.getElementById('btn-add-doc').addEventListener('click', () => openDocModal());
+document.getElementById('doc-cancel').addEventListener('click', () => closeModal('modal-doc'));
+
+const dropEl = document.getElementById('doc-drop');
+const fileInput = document.getElementById('doc-file');
+dropEl.addEventListener('click', () => fileInput.click());
+['dragenter', 'dragover'].forEach(ev => dropEl.addEventListener(ev, e => { e.preventDefault(); dropEl.classList.add('drag'); }));
+['dragleave', 'drop'].forEach(ev => dropEl.addEventListener(ev, e => { e.preventDefault(); dropEl.classList.remove('drag'); }));
+dropEl.addEventListener('drop', e => {
+  if (e.dataTransfer.files.length) {
+    fileInput.files = e.dataTransfer.files;
+    fileInput.dispatchEvent(new Event('change'));
+  }
+});
+fileInput.addEventListener('change', () => {
+  const f = fileInput.files[0];
+  if (!f) return;
+  const err = validateFile(f);
+  if (err) { toast(err, 'error'); fileInput.value = ''; setFileLabel('Belum ada file dipilih'); return; }
+  setFileLabel(`${f.name} (${fmtSize(f.size)})`);
+  document.getElementById('doc-status').value = 'ok';
+});
+
+document.getElementById('doc-save').addEventListener('click', () => {
+  const sidVal = document.getElementById('doc-siswa').value;
+  const siswaId = sidVal ? Number(sidVal) : null;
+  const judul = document.getElementById('doc-nama').value.trim();
+  const kategori = document.getElementById('doc-kategori').value;
+  const tahun = document.getElementById('doc-tahun').value.trim() || String(new Date().getFullYear());
+  const jenis = document.getElementById('doc-jenis').value;
+  const status = document.getElementById('doc-status').value;
+  const file = fileInput.files[0] || null;
+
+  if (!siswaId && !judul) {
+    document.getElementById('doc-nama').style.borderColor = 'var(--red)';
+    toast('Judul dokumen wajib diisi untuk dokumen umum', 'error');
+    return;
+  }
+  if (file) { const err = validateFile(file); if (err) { toast(err, 'error'); return; } }
+
+  let d;
+  if (editingDocId !== null) {
+    d = documents.find(x => x.id === editingDocId);
+    Object.assign(d, { siswaId, kategori, judul, tahun, jenis });
+    d.status = status;
+  } else {
+    d = { id: uid(), siswaId, kategori, judul, tahun, jenis, status, file: null };
+    documents.push(d);
+  }
+  if (file) { attachFile(d, file); d.status = status; }
+
+  const s = siswaId ? getSiswa(siswaId) : null;
+  logAct(`${editingDocId !== null ? 'Dokumen diperbarui' : 'Dokumen baru diunggah'}: "${docTitle(d)}"${s ? ' — ' + s.nama : ''}`);
+  toast(editingDocId !== null ? 'Dokumen berhasil diperbarui' : 'Dokumen berhasil disimpan');
+  closeModal('modal-doc');
+  renderAll();
+});
+
+// =====================================================================
+//  MODAL: TAMBAH / EDIT SISWA
+// =====================================================================
+function openSiswaModal(id = null) {
+  editingSiswaId = id;
+  const s = id !== null ? getSiswa(id) : null;
+  document.getElementById('siswa-modal-title').textContent = s ? 'Edit Data Siswa' : 'Tambah Data Siswa';
+  document.getElementById('siswa-nama').value = s ? s.nama : '';
+  document.getElementById('siswa-nisn').value = s ? s.nisn : '';
+  document.getElementById('siswa-kelas').value = s ? s.kelas : '';
+  document.getElementById('siswa-delete').style.display = s ? 'inline-flex' : 'none';
   document.getElementById('modal-siswa').classList.add('show');
-});
-document.getElementById('siswa-cancel').addEventListener('click', () => {
-  document.getElementById('modal-siswa').classList.remove('show');
-});
+}
+document.getElementById('btn-add-siswa').addEventListener('click', () => openSiswaModal());
+document.getElementById('siswa-cancel').addEventListener('click', () => closeModal('modal-siswa'));
+
 document.getElementById('siswa-save').addEventListener('click', () => {
   const nama = document.getElementById('siswa-nama').value.trim();
   const nisn = document.getElementById('siswa-nisn').value.trim();
-  if (!nama || !nisn) {
-    toast('Nama dan NISN siswa wajib diisi!');
-    return;
+  const kelas = normKelas(document.getElementById('siswa-kelas').value);
+  if (!nama || !nisn || !kelas) { toast('Nama, NISN, dan Kelas siswa wajib diisi!', 'error'); return; }
+  if (siswa.some(s => s.nisn === nisn && s.id !== editingSiswaId)) { toast('NISN tersebut sudah terdaftar pada siswa lain', 'error'); return; }
+
+  if (editingSiswaId !== null) {
+    Object.assign(getSiswa(editingSiswaId), { nama, nisn, kelas });
+    logAct(`Data siswa "${nama}" diperbarui`);
+    toast('Data siswa berhasil diperbarui');
+    closeModal('modal-siswa');
+    renderAll();
+  } else {
+    const baru = { id: uid(), nama, nisn, kelas };
+    siswa.push(baru);
+    logAct(`Data siswa baru "${nama}" ditambahkan ke kelas ${kelas}`);
+    toast('Data siswa ditambahkan — silakan unggah dokumennya');
+    closeModal('modal-siswa');
+    renderAll();
+    openBerkas(baru.id);   // langsung buka Berkas untuk unggah ijazah & dokumen lain
   }
-  siswa.unshift({
-    nama,
-    nisn,
-    kelas: document.getElementById('siswa-kelas').value.trim() || '-',
-    status: document.getElementById('siswa-status').value || 'Terarsip'
-  });
-  activity.unshift({ t: 'Baru saja', text: `Data siswa baru "${nama}" ditambahkan` });
-  document.getElementById('modal-siswa').classList.remove('show');
-  toast('Data siswa berhasil ditambahkan');
+});
+
+document.getElementById('siswa-delete').addEventListener('click', () => {
+  const s = getSiswa(editingSiswaId);
+  if (!s) return;
+  const n = docsOf(s.id).length;
+  if (!confirm(`Hapus siswa "${s.nama}"${n ? ' beserta ' + n + ' dokumennya' : ''}? Tindakan ini tidak dapat dibatalkan.`)) return;
+  docsOf(s.id).forEach(d => { if (d.file) URL.revokeObjectURL(d.file.url); });
+  documents = documents.filter(d => d.siswaId !== s.id);
+  siswa = siswa.filter(x => x.id !== s.id);
+  logAct(`Data siswa "${s.nama}" dihapus`);
+  toast('Data siswa telah dihapus');
+  closeModal('modal-siswa');
+  if (currentBerkasId === s.id) closeModal('modal-berkas');
   renderAll();
 });
 
-// ---------- Modal: Detail dan Preview Dokumen ----------
-function openPrintDokumen(index) {
-  const s = siswa[index];
+// =====================================================================
+//  MODAL: DETAIL DAN PREVIEW DOKUMEN (CETAK)
+// =====================================================================
+function openPrintDokumen(id) {
+  const s = getSiswa(id);
+  if (!s) return;
+  const p = progress(id);
   document.getElementById('print-nama').textContent = s.nama;
   document.getElementById('print-nisn').textContent = s.nisn;
   document.getElementById('print-kelas').textContent = s.kelas;
-  document.getElementById('print-status').textContent = s.status;
+  document.getElementById('print-status').textContent = `${p.label} (${p.done} dari ${p.total} dokumen wajib lengkap)`;
+  document.getElementById('print-missing').textContent = p.missing.length
+    ? p.missing.map(k => KAT_LABEL[k] + (slotDoc(id, k) ? ' (perlu tindakan)' : ' (belum ada)')).join(', ')
+    : '-';
   document.getElementById('print-petugas').textContent = currentUser.toUpperCase();
   document.getElementById('print-tgl').textContent =
     new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
 
-  // Daftar dokumen milik siswa (dicocokkan lewat nama siswa pada nama dokumen)
-  const docs = documents.filter(d => d.nama.toLowerCase().includes(s.nama.toLowerCase()));
+  const docs = docsOf(id).sort((a, b) => KATEGORI.indexOf(a.kategori) - KATEGORI.indexOf(b.kategori));
   document.getElementById('print-docs').innerHTML = docs.length
     ? `<table class="doc-list">
-         <thead><tr><th>No</th><th>Dokumen</th><th>Kategori</th><th>Tahun</th><th>Status</th></tr></thead>
+         <thead><tr><th>No</th><th>Dokumen</th><th>Kategori</th><th>Tahun</th><th>Penyimpanan</th><th>Status</th></tr></thead>
          <tbody>${docs.map((d, i) => `
-           <tr><td>${i + 1}</td><td>${d.nama}</td><td>${d.kategori}</td><td>${d.tahun}</td><td>${statusText(d.status)}</td></tr>
+           <tr><td>${i + 1}</td><td>${esc(docTitle(d))}</td><td>${esc(d.kategori)}</td><td>${esc(d.tahun)}</td><td>${esc(d.jenis)}</td><td>${statusText(d.status)}</td></tr>
          `).join('')}</tbody>
        </table>`
     : `<p style="font-style:italic; margin-top:8px;">Belum ada dokumen yang tercatat untuk siswa ini.</p>`;
 
   document.getElementById('modal-print').classList.add('show');
 }
-document.getElementById('print-close').addEventListener('click', () => {
-  document.getElementById('modal-print').classList.remove('show');
-});
+document.getElementById('print-close').addEventListener('click', () => closeModal('modal-print'));
 function executePrint() {
   toast('Menyiapkan dokumen untuk dicetak...');
-  setTimeout(() => window.print(), 500);
+  document.body.classList.add('printing');
+  setTimeout(() => window.print(), 400);
 }
+window.addEventListener('afterprint', () => document.body.classList.remove('printing'));
 
-// ---------- Backup Manual Trigger ----------
+document.getElementById('preview-close').addEventListener('click', () => closeModal('modal-preview'));
+
+// =====================================================================
+//  BACKUP MANUAL
+// =====================================================================
 document.getElementById('btn-trigger-backup').addEventListener('click', () => {
   const btn = document.getElementById('btn-trigger-backup');
   btn.disabled = true;
@@ -940,11 +1435,9 @@ document.getElementById('btn-trigger-backup').addEventListener('click', () => {
 
   setTimeout(() => {
     const now = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + ' WIB';
-    document.getElementById('sync-time-1').textContent = 'Sinkron terakhir: Hari ini, ' + now;
-    document.getElementById('sync-time-2').textContent = 'Sinkron terakhir: Hari ini, ' + now;
-    document.getElementById('sync-time-3').textContent = 'Sinkron terakhir: Hari ini, ' + now;
-
-    activity.unshift({ t: now, text: 'Backup manual 3 titik penyimpanan berhasil dijalankan oleh Staf TU' });
+    [1, 2, 3].forEach(i => document.getElementById('sync-time-' + i).textContent = 'Sinkron terakhir: Hari ini, ' + now);
+    const files = documents.filter(d => d.file).length;
+    activity.unshift({ t: now, text: `Backup manual ke 3 titik penyimpanan berhasil (${siswa.length} siswa, ${documents.length} dokumen, ${files} file digital)` });
     btn.disabled = false;
     btn.innerHTML = '&#9729; Jalankan Backup Sekarang';
     toast('Sinkronisasi backup data ke 3 lokasi berhasil!');
@@ -952,32 +1445,22 @@ document.getElementById('btn-trigger-backup').addEventListener('click', () => {
   }, 1200);
 });
 
-// ---------- Render: Dashboard & Activity ----------
-function renderDashboard() {
-  document.getElementById('stat-docs').textContent = documents.length;
-  document.getElementById('stat-pending').textContent = documents.filter(d => d.status !== 'ok').length;
-  document.getElementById('stat-siswa').textContent = siswa.length;
-}
-
-function renderActivity() {
-  document.getElementById('activity-log').innerHTML = activity.slice(0, 7).map(a => `
-    <div class="activity-item">
-      <div class="dot"></div>
-      <div style="flex:1;"><strong>${a.text}</strong></div>
-      <div class="t">${a.t}</div>
-    </div>
-  `).join('');
-}
-
-// ---------- Render All ----------
+// =====================================================================
+//  RENDER SEMUA
+// =====================================================================
 function renderAll() {
+  fillKelasSelects();
   renderArsip();
   renderSiswa();
   renderDashboard();
   renderActivity();
+  if (currentBerkasId !== null && document.getElementById('modal-berkas').classList.contains('show')) renderBerkas();
 }
 
-// Initial render
+// Isi pilihan kategori (form unggah + filter)
+document.getElementById('doc-kategori').innerHTML = KATEGORI.map(k => `<option>${k}</option>`).join('');
+document.getElementById('arsip-filter-kat').innerHTML = '<option value="">Semua Kategori</option>' + KATEGORI.map(k => `<option>${k}</option>`).join('');
+
 renderAll();
 </script>
 </body>
