@@ -639,10 +639,14 @@ function toast(msg) {
   setTimeout(() => el.classList.remove('show'), 2500);
 }
 
-function badge(status) {
+function badge(status, index = null) {
   if (status === 'ok') return '<span class="badge ok">&#10003; Lengkap</span>';
-  if (status === 'warn') return '<span class="badge warn">&#9888; Perlu Tindakan</span>';
-  return '<span class="badge bad">&#10007; Hilang</span>';
+  if (status === 'warn') {
+    const clickAttr = index !== null ? ` onclick="resolveDoc(${index})" style="cursor:pointer;" title="Klik untuk tandai selesai"` : '';
+    return `<span class="badge warn"${clickAttr}>&#9888; Perlu Tindakan</span>`;
+  }
+  const clickAttr = index !== null ? ` onclick="resolveDoc(${index})" style="cursor:pointer;" title="Klik untuk tandai selesai"` : '';
+  return `<span class="badge bad"${clickAttr}>&#10007; Hilang</span>`;
 }
 
 // ---------- Login Handlers ----------
@@ -709,19 +713,15 @@ function renderArsip() {
 
   tbody.innerHTML = filtered.map((d) => {
     const realIndex = documents.indexOf(d);
-    const resolveBtn = d.status !== 'ok'
-      ? `<button class="row-btn success" onclick="resolveDoc(${realIndex})">&#10003; Tandai Selesai</button>`
-      : '';
     return `
       <tr>
         <td><strong>${d.nama}</strong></td>
         <td>${d.kategori}</td>
         <td>${d.tahun}</td>
         <td>${d.jenis}</td>
-        <td>${badge(d.status)}</td>
+        <td>${badge(d.status, realIndex)}</td>
         <td style="text-align:right;">
           <div class="action-btns">
-            ${resolveBtn}
             <button class="row-btn" onclick="openDocModal(${realIndex})">Edit</button>
             <button class="row-btn danger" onclick="deleteDoc(${realIndex})">Hapus</button>
           </div>
@@ -820,18 +820,15 @@ function renderAlumni() {
     const index = alumni.indexOf(a);
     const isPending = a.status.toLowerCase().includes('perlu');
     const badgeClass = isPending ? 'warn' : 'ok';
-    const verifyBtn = isPending 
-      ? `<button class="row-btn success" onclick="verifyAlumni(${index})">&#10003; Verifikasi</button>` 
-      : '';
+    const clickAttr = isPending ? ` onclick="verifyAlumni(${index})" style="cursor:pointer;" title="Klik untuk verifikasi"` : '';
     return `
       <tr>
         <td><strong>${a.nama}</strong></td>
         <td>${a.nisn}</td>
         <td>${a.lulus}</td>
-        <td><span class="badge ${badgeClass}">${a.status}</span></td>
+        <td><span class="badge ${badgeClass}"${clickAttr}>${a.status}</span></td>
         <td style="text-align:right;">
           <div class="action-btns">
-            ${verifyBtn}
             <button class="row-btn" onclick="openPrintLegalisir(${index})">&#128438; Cetak Legalisir</button>
           </div>
         </td>
