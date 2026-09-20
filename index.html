@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SI Arsip Siswa — SMP Muhammadiyah 1 Negara Batin</title>
+<title>Sistem Pengelolaan Dokumen Administrasi Siswa — SMP Muhammadiyah 1 Negara Batin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -87,11 +87,13 @@
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
   }
   .login-brand h1 {
-    font-size: 20px;
-    margin: 0 0 4px;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0 0 6px;
     font-weight: 700;
     color: var(--navy-dark);
-    letter-spacing: -0.3px;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
   }
   .login-brand p.sub {
     font-size: 13.5px;
@@ -152,7 +154,7 @@
   }
   .sidebar-brand div p { margin: 0; font-size: 14px; font-weight: 700; color: #fff; line-height: 1.2; }
   .sidebar-brand div span { font-size: 11px; color: rgba(255,255,255,0.65); display: block; margin-top: 2px; }
-  
+
   .nav-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: rgba(255,255,255,0.4); font-weight: 700; padding: 0 10px 8px; margin-top: 4px; }
   .nav-item {
     display: flex; align-items: center; gap: 11px; padding: 11px 14px; border-radius: 8px;
@@ -162,7 +164,7 @@
   .nav-item:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
   .nav-item.active { background: var(--navy-light); color: #fff; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
   .nav-icon { width: 20px; text-align: center; font-size: 15px; opacity: 0.9; }
-  
+
   .sidebar-foot { margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.12); }
   .user-chip { display: flex; align-items: center; gap: 10px; padding: 8px; margin-bottom: 10px; background: rgba(255,255,255,0.06); border-radius: 8px; }
   .user-chip .av { width: 32px; height: 32px; border-radius: 50%; background: var(--navy-light); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
@@ -180,7 +182,7 @@
   .page.active { display: block; animation: fadeIn 0.2s ease; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
-  .page-head { margin-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .page-head { margin-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; }
   .page-head h2 { font-size: 22px; margin: 0 0 4px; font-weight: 700; color: var(--navy-dark); letter-spacing: -0.3px; }
   .page-head p { margin: 0; font-size: 13.5px; color: var(--text-muted); }
 
@@ -189,7 +191,7 @@
   @media(max-width: 860px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } }
 
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); }
-  
+
   .menu-card {
     display: flex; flex-direction: column; gap: 10px; padding: 22px 20px; cursor: pointer;
     transition: all 0.2s ease; border: 1px solid var(--line);
@@ -233,7 +235,7 @@
   /* Modal Backdrop & Box */
   .modal-backdrop { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(3px); display: none; align-items: center; justify-content: center; z-index: 50; padding: 20px; }
   .modal-backdrop.show { display: flex; animation: fadeIn 0.15s ease; }
-  .modal { background: #fff; border-radius: 14px; padding: 24px 28px; width: 100%; max-width: 480px; box-shadow: var(--shadow-lg); border: 1px solid var(--line); }
+  .modal { background: #fff; border-radius: 14px; padding: 24px 28px; width: 100%; max-width: 480px; box-shadow: var(--shadow-lg); border: 1px solid var(--line); max-height: 92vh; overflow-y: auto; }
   .modal h3 { margin: 0 0 16px; font-size: 17px; font-weight: 700; color: var(--navy-dark); border-bottom: 1px solid var(--line); padding-bottom: 12px; }
   .modal-actions { display: flex; gap: 10px; margin-top: 22px; justify-content: flex-end; }
 
@@ -250,7 +252,7 @@
   .activity-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--navy-light); margin-top: 5px; flex-shrink: 0; }
   .activity-item .t { color: var(--text-muted); font-size: 11.5px; white-space: nowrap; font-weight: 500; }
 
-  /* Legalisir Print Preview Modal */
+  /* Detail & Preview Dokumen */
   .print-paper {
     background: #fff; padding: 30px; border: 1px solid var(--line); border-radius: 8px;
     font-family: 'Times New Roman', Times, serif; color: #000; line-height: 1.5; font-size: 14px;
@@ -260,6 +262,22 @@
   .print-header-text h3 { margin: 0; font-size: 16px; font-weight: bold; text-transform: uppercase; }
   .print-header-text h2 { margin: 2px 0; font-size: 18px; font-weight: bold; text-transform: uppercase; color: var(--navy); }
   .print-header-text p { margin: 0; font-size: 11px; font-style: italic; }
+  .print-paper table.doc-list { margin: 10px 0 0; font-size: 13px; }
+  .print-paper table.doc-list th {
+    background: #fff; color: #000; text-transform: none; letter-spacing: 0; font-size: 13px;
+    border: 1px solid #000; padding: 6px 8px;
+  }
+  .print-paper table.doc-list td { border: 1px solid #000; padding: 6px 8px; }
+  .print-paper table.doc-list tr:hover td { background: transparent; }
+
+  /* Saat mencetak: hanya tampilkan isi dokumen */
+  @media print {
+    body * { visibility: hidden; }
+    #print-paper-content, #print-paper-content * { visibility: visible; }
+    .modal-backdrop { background: none; backdrop-filter: none; padding: 0; }
+    .modal { max-width: none; box-shadow: none; border: none; padding: 0; max-height: none; overflow: visible; }
+    #print-paper-content { position: absolute; left: 0; top: 0; width: 100%; border: none; }
+  }
 </style>
 </head>
 <body>
@@ -269,7 +287,7 @@
   <div class="login-card">
     <div class="login-brand">
       <img src="logo.png" alt="Logo SMP Muhammadiyah 1 Negara Batin" class="school-logo" />
-      <h1>SI ARSIP SISWA</h1>
+      <h1>Sistem Pengelolaan Dokumen Administrasi Siswa</h1>
       <p class="sub">SMP Muhammadiyah 1 Negara Batin</p>
       <p class="motto">NPSN: 10806701 — BERIMAN, BERILMU, BERPRESTASI</p>
     </div>
@@ -286,8 +304,8 @@
       <label>Kata Sandi</label>
       <input type="password" id="login-pass" placeholder="••••••••" value="admin123" />
     </div>
-    <button class="btn-primary" id="login-btn">Masuk ke Sistem Arsip</button>
-    <p class="login-hint">Prototipe Sistem Arsip Administrasi Sekolah.<br>Akses dibatasi hanya untuk Staf Tata Usaha.</p>
+    <button class="btn-primary" id="login-btn">Masuk ke Sistem</button>
+    <p class="login-hint">Prototipe Sistem Pengelolaan Dokumen Administrasi Siswa.<br>Akses dibatasi hanya untuk Staf Tata Usaha.</p>
   </div>
 </div>
 
@@ -302,12 +320,12 @@
         <span>Negara Batin</span>
       </div>
     </div>
-    
+
     <div class="nav-title">Menu Utama TU</div>
     <nav>
       <button class="nav-item active" data-page="dashboard"><span class="nav-icon">&#9635;</span>Dasbor Staf</button>
-      <button class="nav-item" data-page="arsip"><span class="nav-icon">&#128193;</span>Arsip Dokumen</button>
-      <button class="nav-item" data-page="alumni"><span class="nav-icon">&#128100;</span>Layanan Alumni</button>
+      <button class="nav-item" data-page="arsip"><span class="nav-icon">&#128193;</span>Dokumen Siswa</button>
+      <button class="nav-item" data-page="siswa"><span class="nav-icon">&#128100;</span>Data Siswa</button>
       <button class="nav-item" data-page="backup"><span class="nav-icon">&#9729;</span>Backup Data</button>
     </nav>
 
@@ -330,14 +348,14 @@
     <div class="page active" id="page-dashboard">
       <div class="page-head">
         <div>
-          <h2>Dasbor Pengelolaan Arsip</h2>
-          <p>Ringkasan status dokumen administrasi siswa dan layanan alumni SMP Muhammadiyah 1 Negara Batin.</p>
+          <h2>Dasbor Pengelolaan Dokumen</h2>
+          <p>Ringkasan data siswa dan status kelengkapan dokumen administrasi SMP Muhammadiyah 1 Negara Batin.</p>
         </div>
       </div>
-      
+
       <div class="grid-4" style="margin-bottom: 24px;">
         <div class="card stat-card">
-          <p class="label">Total Arsip Dokumen</p>
+          <p class="label">Total Dokumen Siswa</p>
           <p class="value" id="stat-docs">0</p>
         </div>
         <div class="card stat-card">
@@ -345,8 +363,8 @@
           <p class="value" style="color:var(--amber);" id="stat-pending">0</p>
         </div>
         <div class="card stat-card">
-          <p class="label">Data Alumni Terdaftar</p>
-          <p class="value" style="color:var(--navy-light);" id="stat-alumni">0</p>
+          <p class="label">Total Siswa Terdaftar</p>
+          <p class="value" style="color:var(--navy-light);" id="stat-siswa">0</p>
         </div>
         <div class="card stat-card">
           <p class="label">Status Cadangan Data</p>
@@ -359,13 +377,13 @@
       <div class="grid-2">
         <div class="card menu-card" data-page="arsip">
           <div class="icon">&#128193;</div>
-          <h3>Kelola Arsip Dokumen</h3>
-          <p>Lihat, cari, dan perbarui data ijazah, rapor, surat masuk/keluar, serta berkas organisasi.</p>
+          <h3>Kelola Dokumen Administrasi</h3>
+          <p>Lihat, cari, dan perbarui data ijazah, rapor, surat masuk/keluar, serta berkas organisasi siswa.</p>
         </div>
-        <div class="card menu-card" data-page="alumni">
+        <div class="card menu-card" data-page="siswa">
           <div class="icon">&#128100;</div>
-          <h3>Layanan Alumni & Legalisir</h3>
-          <p>Verifikasi rekam data alumni dan lakukan cetak ulang dokumen legalisir secara resmi.</p>
+          <h3>Data Siswa</h3>
+          <p>Cari data siswa, periksa kelengkapan dokumennya, dan cetak dokumen administrasi siswa.</p>
         </div>
         <div class="card menu-card" data-page="backup">
           <div class="icon">&#9729;</div>
@@ -375,16 +393,16 @@
         <div class="card menu-card" data-page="arsip" data-open-upload="1">
           <div class="icon">+</div>
           <h3>Unggah Dokumen Baru</h3>
-          <p>Daftarkan dokumen arsip digital dan fisik baru ke dalam basis data sekolah.</p>
+          <p>Daftarkan dokumen digital dan fisik siswa yang baru ke dalam basis data sekolah.</p>
         </div>
       </div>
     </div>
 
-    <!-- PAGE: ARSIP DOKUMEN -->
+    <!-- PAGE: DOKUMEN ADMINISTRASI SISWA -->
     <div class="page" id="page-arsip">
       <div class="page-head">
         <div>
-          <h2>Arsip Dokumen Sekolah</h2>
+          <h2>Daftar Dokumen Administrasi Siswa</h2>
           <p>Daftar inventaris dokumen administrasi siswa lengkap dengan kategori dan status penyimpanan.</p>
         </div>
         <button class="btn primary" id="btn-add-doc">+ Unggah Dokumen Baru</button>
@@ -424,32 +442,32 @@
       </div>
     </div>
 
-    <!-- PAGE: LAYANAN ALUMNI -->
-    <div class="page" id="page-alumni">
+    <!-- PAGE: DATA SISWA -->
+    <div class="page" id="page-siswa">
       <div class="page-head">
         <div>
-          <h2>Layanan Data Alumni</h2>
-          <p>Pencarian data lulusan, verifikasi arsip fisik, dan pencetakan surat legalisir alumni.</p>
+          <h2>Pencarian Data Siswa</h2>
+          <p>Cari data siswa, periksa kelengkapan dokumennya, dan cetak dokumen administrasi siswa.</p>
         </div>
-        <button class="btn primary" id="btn-add-alumni">+ Tambah Data Alumni</button>
+        <button class="btn primary" id="btn-add-siswa">+ Tambah Data Siswa</button>
       </div>
 
       <div class="toolbar">
-        <input type="text" id="alumni-search" placeholder="Cari berdasarkan nama siswa atau NISN..." />
+        <input type="text" id="siswa-search" placeholder="Cari berdasarkan nama siswa, NISN, atau kelas..." />
       </div>
 
       <div class="card" style="padding:0; overflow:hidden;">
         <table>
           <thead>
             <tr>
-              <th>Nama Alumni</th>
+              <th>Nama Siswa</th>
               <th>NISN</th>
-              <th>Tahun Lulus</th>
-              <th>Status Dokumen</th>
+              <th>Kelas</th>
+              <th>Status Kelengkapan Dokumen</th>
               <th style="text-align:right;">Aksi</th>
             </tr>
           </thead>
-          <tbody id="alumni-tbody"></tbody>
+          <tbody id="siswa-tbody"></tbody>
         </table>
       </div>
     </div>
@@ -459,7 +477,7 @@
       <div class="page-head">
         <div>
           <h2>Backup & Keamanan Data</h2>
-          <p>Pengelolaan 3 titik penyimpanan terdesentralisasi untuk menjamin keamanan arsip sekolah.</p>
+          <p>Pengelolaan 3 titik penyimpanan terdesentralisasi untuk menjamin keamanan data dan dokumen siswa.</p>
         </div>
         <button class="btn primary" id="btn-trigger-backup">&#9729; Jalankan Backup Sekarang</button>
       </div>
@@ -503,7 +521,7 @@
     <input type="hidden" id="doc-edit-index" value="" />
     <div class="field">
       <label>Nama Dokumen / Siswa</label>
-      <input type="text" id="doc-nama" placeholder="mis. Ijazah - Budi Santoso" />
+      <input type="text" id="doc-nama" placeholder="mis. Ijazah SD - Budi Santoso" />
     </div>
     <div class="field">
       <label>Kategori Dokumen</label>
@@ -541,37 +559,37 @@
   </div>
 </div>
 
-<!-- ================= MODAL: TAMBAH ALUMNI ================= -->
-<div class="modal-backdrop" id="modal-alumni">
+<!-- ================= MODAL: TAMBAH SISWA ================= -->
+<div class="modal-backdrop" id="modal-siswa">
   <div class="modal">
-    <h3>Tambah Data Alumni</h3>
+    <h3>Tambah Data Siswa</h3>
     <div class="field">
-      <label>Nama Lengkap Alumni</label>
-      <input type="text" id="alumni-nama" placeholder="mis. Ahmad Fauzi" />
+      <label>Nama Lengkap Siswa</label>
+      <input type="text" id="siswa-nama" placeholder="mis. Ahmad Fauzi" />
     </div>
     <div class="field">
       <label>NISN</label>
-      <input type="text" id="alumni-nisn" placeholder="mis. 0051239999" />
+      <input type="text" id="siswa-nisn" placeholder="mis. 0051239999" />
     </div>
     <div class="field">
-      <label>Tahun Lulus</label>
-      <input type="text" id="alumni-lulus" placeholder="2024" />
+      <label>Kelas</label>
+      <input type="text" id="siswa-kelas" placeholder="mis. VIII A" />
     </div>
     <div class="field">
-      <label>Status Ketersediaan Dokumen Arsip</label>
-      <input type="text" id="alumni-status" placeholder="mis. Ijazah & Rapor lengkap di ruang TU" value="Ijazah tersedia di arsip legalisir" />
+      <label>Status Kelengkapan Dokumen</label>
+      <input type="text" id="siswa-status" placeholder="mis. Dokumen lengkap di ruang TU" value="Dokumen lengkap" />
     </div>
     <div class="modal-actions">
-      <button class="btn" id="alumni-cancel">Batal</button>
-      <button class="btn primary" id="alumni-save">Simpan Data Alumni</button>
+      <button class="btn" id="siswa-cancel">Batal</button>
+      <button class="btn primary" id="siswa-save">Simpan Data Siswa</button>
     </div>
   </div>
 </div>
 
-<!-- ================= MODAL: PRATINJAU CETAK LEGALISIR ALUMNI ================= -->
+<!-- ================= MODAL: DETAIL DAN PREVIEW DOKUMEN ================= -->
 <div class="modal-backdrop" id="modal-print">
   <div class="modal" style="max-width: 680px;">
-    <h3>Pratinjau Cetak Legalisir</h3>
+    <h3>Detail dan Preview Dokumen</h3>
     <div class="print-paper" id="print-paper-content">
       <div class="print-header">
         <img src="logo.png" alt="Logo Sekolah" />
@@ -581,20 +599,21 @@
           <p>NPSN: 10806701 — Alamat: Jl. Raya Negara Batin, Kec. Negara Batin, Kab. Way Kanan</p>
         </div>
       </div>
-      <h4 style="text-align:center; text-transform:uppercase; margin: 15px 0 5px; text-decoration: underline;">SURAT KETERANGAN VERIFIKASI DOKUMEN / LEGALISIR</h4>
+      <h4 style="text-align:center; text-transform:uppercase; margin: 15px 0 5px; text-decoration: underline;">DOKUMEN ADMINISTRASI SISWA</h4>
       <p style="text-align:center; font-size:12px; margin-top:0;">Nomor: <span id="print-no-surat">421/089/SMPM01/NB/2026</span></p>
 
       <p style="margin-top:20px;">Yang bertanda tangan di bawah ini Kepala / Staf Tata Usaha SMP Muhammadiyah 1 Negara Batin menerangkan bahwa:</p>
       <table style="width:100%; border:none; margin: 15px 0;">
-        <tr><td style="border:none; width:140px; padding:4px 0;">Nama Alumni</td><td style="border:none; padding:4px 0;">: <strong id="print-nama"></strong></td></tr>
+        <tr><td style="border:none; width:170px; padding:4px 0;">Nama Siswa</td><td style="border:none; padding:4px 0;">: <strong id="print-nama"></strong></td></tr>
         <tr><td style="border:none; padding:4px 0;">NISN</td><td style="border:none; padding:4px 0;">: <span id="print-nisn"></span></td></tr>
-        <tr><td style="border:none; padding:4px 0;">Tahun Kelulusan</td><td style="border:none; padding:4px 0;">: <span id="print-lulus"></span></td></tr>
-        <tr><td style="border:none; padding:4px 0;">Status Arsip</td><td style="border:none; padding:4px 0;">: <span id="print-status"></span></td></tr>
+        <tr><td style="border:none; padding:4px 0;">Kelas</td><td style="border:none; padding:4px 0;">: <span id="print-kelas"></span></td></tr>
+        <tr><td style="border:none; padding:4px 0;">Status Kelengkapan</td><td style="border:none; padding:4px 0;">: <span id="print-status"></span></td></tr>
       </table>
-      <p>Dokumen arsip fisik dan digital yang bersangkutan telah diverifikasi secara sah sesuai dengan catatan arsip sekolah.</p>
+      <p style="margin-bottom:0;">Berdasarkan catatan arsip sekolah, dokumen administrasi siswa yang bersangkutan adalah sebagai berikut:</p>
+      <div id="print-docs"></div>
       <div style="margin-top:40px; display:flex; justify-content:flex-end;">
         <div style="text-align:center; width:220px;">
-          <p style="margin:0;">Negara Batin, <span id="print-tgl">20 September 2026</span></p>
+          <p style="margin:0;">Negara Batin, <span id="print-tgl"></span></p>
           <p style="margin:0 0 50px;">Staf Tata Usaha,</p>
           <p style="margin:0; font-weight:bold; text-decoration:underline;" id="print-petugas">Titis Nurahma, S.Pd.</p>
           <p style="margin:0; font-size:11px;">NIP. 19850412 201001 2 015</p>
@@ -614,16 +633,17 @@
 // ---------- State Aplikasi ----------
 let currentUser = 'staf.tu';
 let documents = [
-  {nama:'Ijazah - Andi Pratama', kategori:'Ijazah', tahun:'2024', jenis:'Fisik + Digital', status:'ok'},
-  {nama:'Rapor Semester 1-6 - Siti Marlina', kategori:'Rapor', tahun:'2025', jenis:'Digital', status:'warn'},
+  {nama:'Ijazah SD - Andi Pratama', kategori:'Ijazah', tahun:'2024', jenis:'Fisik + Digital', status:'ok'},
+  {nama:'Rapor Semester 1 - Siti Marlina', kategori:'Rapor', tahun:'2025', jenis:'Digital', status:'warn'},
   {nama:'Surat Undangan Wali Murid 2026', kategori:'Surat masuk/keluar', tahun:'2026', jenis:'Fisik + Digital', status:'ok'},
   {nama:'SK Pembina Pramuka SMP Muh 1', kategori:'Organisasi', tahun:'2025', jenis:'Fisik', status:'warn'},
-  {nama:'Ijazah - Rani Kusuma', kategori:'Ijazah', tahun:'2022', jenis:'Fisik + Digital', status:'ok'},
+  {nama:'Ijazah SD - Rani Kusuma', kategori:'Ijazah', tahun:'2023', jenis:'Fisik + Digital', status:'ok'},
 ];
-let alumni = [
-  {nama:'Rani Kusuma', nisn:'0051234567', lulus:'2022', status:'Ijazah tersedia di arsip legalisir'},
-  {nama:'Dedi Firmansyah', nisn:'0049876543', lulus:'2021', status:'Perlu verifikasi arsip fisik'},
-  {nama:'Nurul Hidayah', nisn:'0052345678', lulus:'2023', status:'Ijazah & Transkrip terarsip digital'},
+let siswa = [
+  {nama:'Andi Pratama', nisn:'0051112233', kelas:'IX A', status:'Dokumen lengkap'},
+  {nama:'Siti Marlina', nisn:'0049876543', kelas:'VIII B', status:'Perlu verifikasi dokumen fisik'},
+  {nama:'Rani Kusuma', nisn:'0051234567', kelas:'VII A', status:'Dokumen lengkap'},
+  {nama:'Nurul Hidayah', nisn:'0052345678', kelas:'VIII A', status:'Dokumen terarsip digital'},
 ];
 let activity = [
   {t:'09:02 WIB', text:'Google Drive tersinkronisasi otomatis'},
@@ -649,6 +669,12 @@ function badge(status, index = null) {
   return `<span class="badge bad"${clickAttr}>&#10007; Hilang</span>`;
 }
 
+function statusText(status) {
+  if (status === 'ok') return 'Lengkap';
+  if (status === 'warn') return 'Perlu Tindakan';
+  return 'Hilang / Belum Ada';
+}
+
 // ---------- Login Handlers ----------
 document.getElementById('login-btn').addEventListener('click', () => {
   const user = document.getElementById('login-user').value.trim();
@@ -660,10 +686,10 @@ document.getElementById('login-btn').addEventListener('click', () => {
   currentUser = user;
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app').classList.add('show');
-  
+
   document.getElementById('user-name').textContent = user;
   document.getElementById('user-av').textContent = user.slice(0, 2).toUpperCase();
-  
+
   toast('Selamat datang, Staf TU ' + user);
   showPage('dashboard');
   renderAll();
@@ -680,7 +706,7 @@ function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + name);
   if (target) target.classList.add('active');
-  
+
   document.querySelectorAll('.nav-item').forEach(n => {
     n.classList.toggle('active', n.dataset.page === name);
   });
@@ -697,13 +723,13 @@ document.querySelectorAll('.menu-card').forEach(card => {
   });
 });
 
-// ---------- Render: Arsip Dokumen ----------
+// ---------- Render: Dokumen Administrasi ----------
 function renderArsip() {
   const q = document.getElementById('arsip-search').value.toLowerCase();
   const kat = document.getElementById('arsip-filter-kat').value;
   const st = document.getElementById('arsip-filter-status').value;
   const tbody = document.getElementById('arsip-tbody');
-  
+
   const filtered = documents.filter(d => {
     const matchQ = d.nama.toLowerCase().includes(q) || d.tahun.includes(q);
     const matchKat = !kat || d.kategori === kat;
@@ -727,7 +753,7 @@ function renderArsip() {
           </div>
         </td>
       </tr>`;
-  }).join('') || `<tr><td colspan="6" style="color:var(--text-muted); text-align:center; padding:28px;">Tidak ada dokumen arsip yang sesuai.</td></tr>`;
+  }).join('') || `<tr><td colspan="6" style="color:var(--text-muted); text-align:center; padding:28px;">Tidak ada dokumen yang sesuai.</td></tr>`;
 }
 
 function resolveDoc(index) {
@@ -750,7 +776,7 @@ function openDocModal(index = null) {
 
   if (index !== null) {
     const d = documents[index];
-    title.textContent = 'Edit Dokumen Arsip';
+    title.textContent = 'Edit Dokumen Siswa';
     document.getElementById('doc-nama').value = d.nama;
     document.getElementById('doc-kategori').value = d.kategori;
     document.getElementById('doc-tahun').value = d.tahun;
@@ -800,7 +826,7 @@ document.getElementById('doc-save').addEventListener('click', () => {
 });
 
 function deleteDoc(index) {
-  if (confirm(`Apakah Anda yakin ingin menghapus arsip "${documents[index].nama}"?`)) {
+  if (confirm(`Apakah Anda yakin ingin menghapus dokumen "${documents[index].nama}"?`)) {
     const nama = documents[index].nama;
     documents.splice(index, 1);
     activity.unshift({ t: 'Baru saja', text: `Dokumen "${nama}" dihapus dari arsip` });
@@ -809,84 +835,100 @@ function deleteDoc(index) {
   }
 }
 
-// ---------- Render: Alumni ----------
-function renderAlumni() {
-  const q = document.getElementById('alumni-search').value.toLowerCase();
-  const tbody = document.getElementById('alumni-tbody');
-  
-  const filtered = alumni.filter(a => a.nama.toLowerCase().includes(q) || a.nisn.includes(q) || a.lulus.includes(q));
-  
-  tbody.innerHTML = filtered.map((a) => {
-    const index = alumni.indexOf(a);
-    const isPending = a.status.toLowerCase().includes('perlu');
+// ---------- Render: Data Siswa ----------
+function renderSiswa() {
+  const q = document.getElementById('siswa-search').value.toLowerCase();
+  const tbody = document.getElementById('siswa-tbody');
+
+  const filtered = siswa.filter(s =>
+    s.nama.toLowerCase().includes(q) || s.nisn.includes(q) || s.kelas.toLowerCase().includes(q)
+  );
+
+  tbody.innerHTML = filtered.map((s) => {
+    const index = siswa.indexOf(s);
+    const isPending = s.status.toLowerCase().includes('perlu');
     const badgeClass = isPending ? 'warn' : 'ok';
-    const clickAttr = isPending ? ` onclick="verifyAlumni(${index})" style="cursor:pointer;" title="Klik untuk verifikasi"` : '';
+    const clickAttr = isPending ? ` onclick="verifySiswa(${index})" style="cursor:pointer;" title="Klik untuk verifikasi"` : '';
     return `
       <tr>
-        <td><strong>${a.nama}</strong></td>
-        <td>${a.nisn}</td>
-        <td>${a.lulus}</td>
-        <td><span class="badge ${badgeClass}"${clickAttr}>${a.status}</span></td>
+        <td><strong>${s.nama}</strong></td>
+        <td>${s.nisn}</td>
+        <td>${s.kelas}</td>
+        <td><span class="badge ${badgeClass}"${clickAttr}>${s.status}</span></td>
         <td style="text-align:right;">
           <div class="action-btns">
-            <button class="row-btn" onclick="openPrintLegalisir(${index})">&#128438; Cetak Legalisir</button>
+            <button class="row-btn" onclick="openPrintDokumen(${index})">&#128438; Cetak Dokumen</button>
           </div>
         </td>
       </tr>`;
-  }).join('') || `<tr><td colspan="5" style="color:var(--text-muted); text-align:center; padding:28px;">Data alumni tidak ditemukan.</td></tr>`;
+  }).join('') || `<tr><td colspan="5" style="color:var(--text-muted); text-align:center; padding:28px;">Data siswa tidak ditemukan.</td></tr>`;
 }
 
-function verifyAlumni(index) {
-  const a = alumni[index];
-  a.status = 'Ijazah & Transkrip terverifikasi lengkap';
-  activity.unshift({ t: 'Baru saja', text: `Staf TU memverifikasi data alumni "${a.nama}"` });
-  toast(`Data alumni "${a.nama}" berhasil diverifikasi!`);
+function verifySiswa(index) {
+  const s = siswa[index];
+  s.status = 'Dokumen terverifikasi lengkap';
+  activity.unshift({ t: 'Baru saja', text: `Staf TU memverifikasi dokumen siswa "${s.nama}"` });
+  toast(`Dokumen siswa "${s.nama}" berhasil diverifikasi!`);
   renderAll();
 }
 
-document.getElementById('alumni-search').addEventListener('input', renderAlumni);
+document.getElementById('siswa-search').addEventListener('input', renderSiswa);
 
-// ---------- Modal: Tambah Alumni ----------
-document.getElementById('btn-add-alumni').addEventListener('click', () => {
-  document.getElementById('modal-alumni').classList.add('show');
+// ---------- Modal: Tambah Siswa ----------
+document.getElementById('btn-add-siswa').addEventListener('click', () => {
+  document.getElementById('modal-siswa').classList.add('show');
 });
-document.getElementById('alumni-cancel').addEventListener('click', () => {
-  document.getElementById('modal-alumni').classList.remove('show');
+document.getElementById('siswa-cancel').addEventListener('click', () => {
+  document.getElementById('modal-siswa').classList.remove('show');
 });
-document.getElementById('alumni-save').addEventListener('click', () => {
-  const nama = document.getElementById('alumni-nama').value.trim();
-  const nisn = document.getElementById('alumni-nisn').value.trim();
+document.getElementById('siswa-save').addEventListener('click', () => {
+  const nama = document.getElementById('siswa-nama').value.trim();
+  const nisn = document.getElementById('siswa-nisn').value.trim();
   if (!nama || !nisn) {
-    toast('Nama dan NISN Alumni wajib diisi!');
+    toast('Nama dan NISN siswa wajib diisi!');
     return;
   }
-  alumni.unshift({
+  siswa.unshift({
     nama,
     nisn,
-    lulus: document.getElementById('alumni-lulus').value || '2025',
-    status: document.getElementById('alumni-status').value || 'Terarsip'
+    kelas: document.getElementById('siswa-kelas').value.trim() || '-',
+    status: document.getElementById('siswa-status').value || 'Terarsip'
   });
-  activity.unshift({ t: 'Baru saja', text: `Data alumni baru "${nama}" ditambahkan` });
-  document.getElementById('modal-alumni').classList.remove('show');
-  toast('Data alumni berhasil ditambahkan');
+  activity.unshift({ t: 'Baru saja', text: `Data siswa baru "${nama}" ditambahkan` });
+  document.getElementById('modal-siswa').classList.remove('show');
+  toast('Data siswa berhasil ditambahkan');
   renderAll();
 });
 
-// ---------- Modal: Pratinjau Legalisir Print ----------
-function openPrintLegalisir(index) {
-  const a = alumni[index];
-  document.getElementById('print-nama').textContent = a.nama;
-  document.getElementById('print-nisn').textContent = a.nisn;
-  document.getElementById('print-lulus').textContent = a.lulus;
-  document.getElementById('print-status').textContent = a.status;
+// ---------- Modal: Detail dan Preview Dokumen ----------
+function openPrintDokumen(index) {
+  const s = siswa[index];
+  document.getElementById('print-nama').textContent = s.nama;
+  document.getElementById('print-nisn').textContent = s.nisn;
+  document.getElementById('print-kelas').textContent = s.kelas;
+  document.getElementById('print-status').textContent = s.status;
   document.getElementById('print-petugas').textContent = currentUser.toUpperCase();
+  document.getElementById('print-tgl').textContent =
+    new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  // Daftar dokumen milik siswa (dicocokkan lewat nama siswa pada nama dokumen)
+  const docs = documents.filter(d => d.nama.toLowerCase().includes(s.nama.toLowerCase()));
+  document.getElementById('print-docs').innerHTML = docs.length
+    ? `<table class="doc-list">
+         <thead><tr><th>No</th><th>Dokumen</th><th>Kategori</th><th>Tahun</th><th>Status</th></tr></thead>
+         <tbody>${docs.map((d, i) => `
+           <tr><td>${i + 1}</td><td>${d.nama}</td><td>${d.kategori}</td><td>${d.tahun}</td><td>${statusText(d.status)}</td></tr>
+         `).join('')}</tbody>
+       </table>`
+    : `<p style="font-style:italic; margin-top:8px;">Belum ada dokumen yang tercatat untuk siswa ini.</p>`;
+
   document.getElementById('modal-print').classList.add('show');
 }
 document.getElementById('print-close').addEventListener('click', () => {
   document.getElementById('modal-print').classList.remove('show');
 });
 function executePrint() {
-  toast('Mencetak dokumen legalisir resmi...');
+  toast('Menyiapkan dokumen untuk dicetak...');
   setTimeout(() => window.print(), 500);
 }
 
@@ -895,13 +937,13 @@ document.getElementById('btn-trigger-backup').addEventListener('click', () => {
   const btn = document.getElementById('btn-trigger-backup');
   btn.disabled = true;
   btn.innerHTML = '&#8987; Melakukan Sinkronisasi...';
-  
+
   setTimeout(() => {
     const now = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + ' WIB';
     document.getElementById('sync-time-1').textContent = 'Sinkron terakhir: Hari ini, ' + now;
     document.getElementById('sync-time-2').textContent = 'Sinkron terakhir: Hari ini, ' + now;
     document.getElementById('sync-time-3').textContent = 'Sinkron terakhir: Hari ini, ' + now;
-    
+
     activity.unshift({ t: now, text: 'Backup manual 3 titik penyimpanan berhasil dijalankan oleh Staf TU' });
     btn.disabled = false;
     btn.innerHTML = '&#9729; Jalankan Backup Sekarang';
@@ -914,7 +956,7 @@ document.getElementById('btn-trigger-backup').addEventListener('click', () => {
 function renderDashboard() {
   document.getElementById('stat-docs').textContent = documents.length;
   document.getElementById('stat-pending').textContent = documents.filter(d => d.status !== 'ok').length;
-  document.getElementById('stat-alumni').textContent = alumni.length;
+  document.getElementById('stat-siswa').textContent = siswa.length;
 }
 
 function renderActivity() {
@@ -930,7 +972,7 @@ function renderActivity() {
 // ---------- Render All ----------
 function renderAll() {
   renderArsip();
-  renderAlumni();
+  renderSiswa();
   renderDashboard();
   renderActivity();
 }
