@@ -226,6 +226,8 @@
   .action-btns { display: flex; gap: 6px; justify-content: flex-end; }
   .row-btn { padding: 6px 12px; border-radius: 6px; border: 1px solid var(--line); background: #fff; font-size: 12px; font-weight: 500; color: var(--text); }
   .row-btn:hover { border-color: var(--navy); background: #F1F5F9; color: var(--navy); }
+  .row-btn.success { background: var(--green-bg); color: var(--green); border-color: #86EFAC; font-weight: 600; }
+  .row-btn.success:hover { background: #BBF7D0; border-color: var(--green); }
   .row-btn.danger:hover { border-color: var(--red); color: var(--red); background: var(--red-bg); }
 
   /* Modal Backdrop & Box */
@@ -705,6 +707,9 @@ function renderArsip() {
 
   tbody.innerHTML = filtered.map((d) => {
     const realIndex = documents.indexOf(d);
+    const resolveBtn = d.status !== 'ok'
+      ? `<button class="row-btn success" onclick="resolveDoc(${realIndex})">&#10003; Tandai Selesai</button>`
+      : '';
     return `
       <tr>
         <td><strong>${d.nama}</strong></td>
@@ -714,12 +719,21 @@ function renderArsip() {
         <td>${badge(d.status)}</td>
         <td style="text-align:right;">
           <div class="action-btns">
+            ${resolveBtn}
             <button class="row-btn" onclick="openDocModal(${realIndex})">Edit</button>
             <button class="row-btn danger" onclick="deleteDoc(${realIndex})">Hapus</button>
           </div>
         </td>
       </tr>`;
   }).join('') || `<tr><td colspan="6" style="color:var(--text-muted); text-align:center; padding:28px;">Tidak ada dokumen arsip yang sesuai.</td></tr>`;
+}
+
+function resolveDoc(index) {
+  const d = documents[index];
+  d.status = 'ok';
+  activity.unshift({ t: 'Baru saja', text: `Tindakan selesai: Dokumen "${d.nama}" kini berstatus Lengkap` });
+  toast(`Status "${d.nama}" berhasil diubah menjadi Lengkap!`);
+  renderAll();
 }
 
 document.getElementById('arsip-search').addEventListener('input', renderArsip);
@@ -802,17 +816,33 @@ function renderAlumni() {
   
   tbody.innerHTML = filtered.map((a) => {
     const index = alumni.indexOf(a);
+    const isPending = a.status.toLowerCase().includes('perlu');
+    const badgeClass = isPending ? 'warn' : 'ok';
+    const verifyBtn = isPending 
+      ? `<button class="row-btn success" onclick="verifyAlumni(${index})">&#10003; Verifikasi</button>` 
+      : '';
     return `
       <tr>
         <td><strong>${a.nama}</strong></td>
         <td>${a.nisn}</td>
         <td>${a.lulus}</td>
-        <td><span class="badge ok">${a.status}</span></td>
+        <td><span class="badge ${badgeClass}">${a.status}</span></td>
         <td style="text-align:right;">
-          <button class="row-btn" onclick="openPrintLegalisir(${index})">&#128438; Cetak Legalisir</button>
+          <div class="action-btns">
+            ${verifyBtn}
+            <button class="row-btn" onclick="openPrintLegalisir(${index})">&#128438; Cetak Legalisir</button>
+          </div>
         </td>
       </tr>`;
   }).join('') || `<tr><td colspan="5" style="color:var(--text-muted); text-align:center; padding:28px;">Data alumni tidak ditemukan.</td></tr>`;
+}
+
+function verifyAlumni(index) {
+  const a = alumni[index];
+  a.status = 'Ijazah & Transkrip terverifikasi lengkap';
+  activity.unshift({ t: 'Baru saja', text: `Staf TU memverifikasi data alumni "${a.nama}"` });
+  toast(`Data alumni "${a.nama}" berhasil diverifikasi!`);
+  renderAll();
 }
 
 document.getElementById('alumni-search').addEventListener('input', renderAlumni);
